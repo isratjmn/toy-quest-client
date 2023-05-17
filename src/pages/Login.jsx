@@ -83,17 +83,19 @@ const Login = () => {
 						/>
 					</div>
 
-					<button type="submit" className="btn-primary">
+                    <button
+						type="submit"
+						class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+					>
 						Login
 					</button>
 				</form>
-				<span className="font-popins">
+				<span className="font-popins text-center font-bold">
 					Do not have an account!!
 					<Link
 						to="/login/register"
-						className="text-primary font-semibold underline"
-					>
-						Register
+						className="text-orange-500 font-semibold underline "
+					> Register
 					</Link>
 				</span>
 				<div className="flex justify-evenly mt-5">
@@ -101,7 +103,7 @@ const Login = () => {
 						onClick={handleLoginGoogle}
 						className="flex items-center bg-lime-800 px-3 py-2 rounded-md shadow-md"
 					>
-						<FaGoogle className="w-8text-yellow-400" />
+						<FaGoogle className="w-8 text-yellow-400 text-sm" />
 						<span className="font-popins text-white font-semibold">
 							GOOGLE
 						</span>
@@ -110,7 +112,7 @@ const Login = () => {
 						onClick={handleLoginGithub}
 						className="flex items-center bg-blue-900 px-3 py-2 rounded-md shadow-md"
 					>
-						<FaGithub className="w-8 text-yellow-400" />
+						<FaGithub className="w-8 text-sm text-orange-500" />
 						<span className="font-popins text-white font-semibold">
 							GITHUB
 						</span>

@@ -4,6 +4,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { FaExclamation } from "react-icons/fa";
+import { Card, Label, TextInput } from "flowbite-react";
 
 const Register = () => {
 	const { resgisterWithEmailPassword, logOut } = useContext(AuthContext);
@@ -56,7 +57,7 @@ const Register = () => {
 					</div>
 					<div>
 						<div className="mb-2 block">
-							<label htmlFor="email1" value="Your email" />
+							<Label htmlFor="email" value="Your Email" />
 						</div>
 						<TextInput
 							id="email1"
@@ -89,17 +90,23 @@ const Register = () => {
 						/>
 					</div>
 
-					<button type="submit" className="btn-primary">
+					{/* <button type="submit" className="btn-primary">
+						Register
+					</button> */}
+					<button
+						type="submit"
+						class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+					>
 						Register
 					</button>
 				</form>
-				<span className="font-popins text-sm">
-					Already have an account!!
+				<span className="font-popins text-sm font-bold">
+					Already Have an Account!! 
+
 					<Link
 						to="/login"
-						className=" text-primary font-semibold underline"
-					>
-						Login
+						className="text-orange-500 font-bold underline"
+					>Login
 					</Link>
 				</span>
 			</Card>
