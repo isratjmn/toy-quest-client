@@ -4,7 +4,8 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Card, Label, TextInput } from "flowbite-react";
-import { FaGithub, FaGoogle } from "react-icons/fa";
+import { FaExclamation, FaGoogle } from "react-icons/fa";
+
 const Login = () => {
 	const { loginWithEmailAndPassword, loginWithGoogle, loginWithGithub } =
 		useContext(AuthContext);
@@ -85,31 +86,22 @@ const Login = () => {
 
 					<button
 						type="submit"
-						class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+						className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
 					>
 						Login
 					</button>
 				</form>
-				<span className="font-popins text-center font-bold">
-					Do not have an account!!
-					<Link
-						to="/login/register"
-						className="text-orange-500 font-semibold underline "
-					>
-						{" "}
-						Register
-					</Link>
-				</span>
-				<div className="flex justify-evenly mt-5">
+				<div className="flex justify-evenly">
 					<button
 						onClick={handleLoginGoogle}
-						className="flex items-center bg-lime-800 px-3 py-2 rounded-md shadow-md"
+						className="flex items-center bg-[#4285F4] hover:bg-[#4285F4]/90 rounded-md shadow-md font-medium text-sm px-32 py-2.5 text-center"
 					>
 						<FaGoogle className="w-8 text-yellow-400 text-sm" />
 						<span className="font-popins text-white font-semibold">
-							GOOGLE
+							Google
 						</span>
 					</button>
+
 					{/* <button
 						onClick={handleLoginGithub}
 						className="flex items-center bg-blue-900 px-3 py-2 rounded-md shadow-md"
@@ -120,6 +112,17 @@ const Login = () => {
 						</span>
 					</button> */}
 				</div>
+				<span className="font-popins text-center font-bold">
+					Do not have an account!!
+					<Link
+						to="/login/register"
+						className="text-orange-500 font-semibold underline "
+					>
+						{" "}
+						Register
+					</Link>
+				</span>
+				
 			</Card>
 		</div>
 	);

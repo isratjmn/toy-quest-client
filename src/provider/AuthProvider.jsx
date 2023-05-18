@@ -9,7 +9,7 @@ const AuthProvider = ({ children }) => {
 
 	const googleProvider = new GoogleAuthProvider();
 
-	const githubProbider = new GithubAuthProvider();
+	// const githubProbider = new GithubAuthProvider();
 
 	// Create Account Email And Password
 	const resgisterWithEmailPassword = (email, password) => {
@@ -25,10 +25,10 @@ const AuthProvider = ({ children }) => {
 		setLoading(true);
 		return signInWithPopup(auth, googleProvider);
 	};
-	const loginWithGithub = () => {
+	/* const loginWithGithub = () => {
 		setLoading(true);
 		return signInWithPopup(auth, githubProbider);
-	};
+	}; */
 	const logOut = () => {
 		setLoading(true);
 		return signOut(auth);
@@ -48,7 +48,7 @@ const AuthProvider = ({ children }) => {
 		resgisterWithEmailPassword,
 		loginWithEmailAndPassword,
 		loginWithGoogle,
-		loginWithGithub,
+		// loginWithGithub,
 		logOut,
 	};
 	return (

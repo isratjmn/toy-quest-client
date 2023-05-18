@@ -95,18 +95,18 @@ const Register = () => {
 					</button> */}
 					<button
 						type="submit"
-						class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+						className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
 					>
 						Register
 					</button>
 				</form>
-				<span className="font-popins text-sm font-bold">
+				<span className="font-popins text-center font-bold mt-2">
 					Already Have an Account!! 
 
 					<Link
 						to="/login"
 						className="text-orange-500 font-bold underline"
-					>Login
+					> Login
 					</Link>
 				</span>
 			</Card>
