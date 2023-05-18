@@ -35,7 +35,7 @@ const Login = () => {
 			})
 			.catch((err) => setError(err.message));
 	};
-	const handleLoginGithub = () => {
+	/* const handleLoginGithub = () => {
 		loginWithGithub()
 			.then((res) => {
 				const loggedUser = res.user;
@@ -43,7 +43,7 @@ const Login = () => {
 				navigate(from, { replace: true });
 			})
 			.catch((err) => setError(err.message));
-	};
+	}; */
 
 	return (
 		<div className="max-w-sm my-56 mx-auto shadow-xl">
@@ -83,7 +83,7 @@ const Login = () => {
 						/>
 					</div>
 
-                    <button
+					<button
 						type="submit"
 						class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
 					>
@@ -95,7 +95,9 @@ const Login = () => {
 					<Link
 						to="/login/register"
 						className="text-orange-500 font-semibold underline "
-					> Register
+					>
+						{" "}
+						Register
 					</Link>
 				</span>
 				<div className="flex justify-evenly mt-5">
@@ -108,7 +110,7 @@ const Login = () => {
 							GOOGLE
 						</span>
 					</button>
-					<button
+					{/* <button
 						onClick={handleLoginGithub}
 						className="flex items-center bg-blue-900 px-3 py-2 rounded-md shadow-md"
 					>
@@ -116,7 +118,7 @@ const Login = () => {
 						<span className="font-popins text-white font-semibold">
 							GITHUB
 						</span>
-					</button>
+					</button> */}
 				</div>
 			</Card>
 		</div>

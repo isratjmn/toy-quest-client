@@ -68,7 +68,7 @@ const Footer = () => {
 								<li className="mb-2 flex gap-2 items-center">
 									{" "}
 									<FaRegEnvelope />
-									fusion.info@mail.com
+									toyquest.info@mail.com
 								</li>
 							</ul>
 						</div>

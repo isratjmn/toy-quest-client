@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from "../../provider/AuthProvider";
 import { FaUserCircle } from "react-icons/fa";
-import { Navbar } from 'flowbite-react';
+import { Avatar, Dropdown, Navbar } from 'flowbite-react';
 import { Link, NavLink } from 'react-router-dom';
 
 const Header = ({ login }) => {

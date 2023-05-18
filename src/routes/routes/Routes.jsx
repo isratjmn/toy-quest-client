@@ -5,6 +5,8 @@ import Login from "../../pages/Login";
 import Register from "../../pages/Register";
 import MainLayout from "../../Layouts/MainLayout";
 import LoginLayouts from "../../Layouts/LoginLayouts";
+import BlogLayout from "../../Layouts/BlogLayout";
+import Blogs from "../../pages/Blogs";
 
 const router = createBrowserRouter([
 	{
@@ -30,6 +32,20 @@ const router = createBrowserRouter([
 			{
 				path: "/login/register",
 				element: <Register />,
+			},
+		],
+	},
+	{
+		path: "/blog",
+		element: <BlogLayout />,
+		children: [
+			{
+				path: "/blog",
+				element: <Blogs />,
+				loader: () =>
+					fetch(
+						"blog.json"
+					),
 			},
 		],
 	},
