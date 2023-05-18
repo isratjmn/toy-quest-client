@@ -1,39 +1,50 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+	FaFacebook,
+	FaInstagram,
+	FaTwitter,
+	FaYahoo,
+	FaYoutube,
+} from "react-icons/fa";
+
+import { FaPhoneAlt, FaMapMarkerAlt, FaRegEnvelope } from "react-icons/fa";
 
 const Footer = () => {
-    return (
-        <div>
-            <footer className="section px-4 bg-gray-800 text-white">
-				<div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-10 mb-8 mx-auto w-full max-w-screen-xl">
+	return (
+		<div className="bg-[#FFF3F1]">
+			<footer className="section px-4 text-black mt-96">
+				<div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-10 border mb-8 mx-auto w-full max-w-screen-xl">
 					<div className="mb-6 md:mb-0">
 						<img
-							src="https://i.ibb.co/wM5KgLt/hot-pot.png"
-							className="h-16 ml-12 mt-12"
-							alt="Logo"
+							src="https://i.ibb.co/JzWXq36/logo.png"
+							className="h-28"
+							alt="logo"
 						/>
-						<span className="self-center text-red-600 text-2xl font-bold whitespace-nowrap dark:text-white">
-							FlavorFushion
-						</span>
-						<p className="text-lg my-4 ">
-							We are a team of Professional Cooks who are Excited
-							about their Food, Amazing Skills and Expertiness in
-							Cooking.
+						<p className="text-base my-4 ">
+							Educational and learning toys are designed to engage
+							children in meaningful play while promoting their
+							intellectual, cognitive, and physical development.
+							
 						</p>
 					</div>
-					<div className="grid grid-cols-2">
+					
 						<div>
 							<h2 className="font-bold text-[1.3rem] mb-8 mt-12">
-								Work Time
+								Categories
 							</h2>
 							<ul className="mb-6 text-base font-semibold dark:text-white">
 								<li className="mb-2">
-									Monday - Friday -- <br /> 09:00 - 23:00
+									Gallery
 								</li>
 								<li className="mb-2">
-									Saturday -- <br /> 09:00 - 23:00
+									Educational Products
 								</li>
 								<li className="mb-2">
-									Sunday -- <br /> 12:00 - 23:00
+									Toys
+								</li>
+								<li className="mb-2">
+									Gift Cards
 								</li>
 							</ul>
 						</div>
@@ -44,7 +55,7 @@ const Footer = () => {
 							<ul className="mb-6 text-base font-semibold dark:text-white">
 								<li className="mb-2 flex gap-2 items-center">
 									{" "}
-									<FaMapMarkerAlt />
+									<FaMapMarkerAlt className="text-orange-500" />
 									150 Duffy Ave, Hicksville, NY 11801, USA
 								</li>
 								<li className="mb-2 flex gap-2 items-center">
@@ -61,38 +72,19 @@ const Footer = () => {
 								</li>
 							</ul>
 						</div>
-					</div>
+					
 					<div>
 						<h2 className="font-bold text-[1.3rem] mb-8 mt-12">
-							Services
+						Information
 						</h2>
 						<ul className="dark:text-gray-400 font-medium">
-							<li className="mb-2">About</li>
-							<li className="mb-2">Chefs</li>
-							<li className="mb-2">Blogs</li>
+							<li className="mb-2">About ToyQuest</li>
+							<li className="mb-2">Career</li>
+							<li className="mb-2">Delivery Terms</li>
 							<li className="mb-2">Privacy Policy</li>
 						</ul>
-						<h2 className="mt-8 font-bold text-[1.3rem] mb-8">
-							Sunscribe To Our News
-						</h2>
-						{/* Sign Up Form */}
-						<div className="section-signup bg1-pattern p-t-85 p-b-85">
-							<form className="flex">
-								<div>
-									<input
-										type="text"
-										name="email-address"
-										placeholder="Email Adrress"
-									/>
-								</div>
-								<button
-									type="button"
-									className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2"
-								>
-									Subscibe
-								</button>
-							</form>
-						</div>
+						
+						
 					</div>
 				</div>
 
@@ -205,8 +197,8 @@ const Footer = () => {
 					</div>
 				</div>
 			</footer>
-        </div>
-    );
+		</div>
+	);
 };
 
 export default Footer;

@@ -18,13 +18,13 @@ const Header = ({ login }) => {
 			<Navbar
 				fluid={true}
 				rounded={true}
-				style={{ background: "transparent" }}
+				style={{ background: "#FFF3F1", padding: "0 15px", borderRadius: '13px' }}
 			>
 				<div>
 					<Link to="/">
 						<img
-							src="https://i.ibb.co/QHqWjDp/logo.png"
-							className="w-28"
+							src="https://i.ibb.co/JzWXq36/logo.png"
+							className="w-24"
 							alt="logo"
 						/>
 					</Link>
@@ -67,13 +67,13 @@ const Header = ({ login }) => {
 
 					<Navbar.Toggle />
 				</div>
-				<Navbar.Collapse className="bg-white md:bg-inherit p-8 md:p-0">
+				<Navbar.Collapse className="bg-white md:bg-inherit p-8 md:p-0 text-black">
 					<NavLink
 						to="/"
 						className={({ isActive }) =>
 							isActive
-								? "text-primary text-xl mb-3 font-semibold"
-								: " text-black md:text-inherit text-xl"
+								? "text-primary text-lg mb-3 font-bold"
+								: " text-black md:text-inherit text-lg"
 						}
 					>
 						Home
@@ -82,8 +82,8 @@ const Header = ({ login }) => {
 						to="/blog"
 						className={({ isActive }) =>
 							isActive
-								? "text-primary text-xl font-semibold"
-								: "text-black md:text-inherit text-xl"
+								? "text-primary text-lg font-bold"
+								: "text-black md:text-inherit text-lg"
 						}
 					>
 						All Toys
@@ -92,8 +92,8 @@ const Header = ({ login }) => {
 						to="/blog"
 						className={({ isActive }) =>
 							isActive
-								? "text-primary text-xl font-semibold"
-								: "text-black md:text-inherit text-xl"
+								? "text-primary text-lg font-bold"
+								: "text-black md:text-inherit text-lg"
 						}
 					>
 						Blogs

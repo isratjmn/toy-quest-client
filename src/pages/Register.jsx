@@ -34,8 +34,8 @@ const Register = () => {
 			.catch((err) => setError(err.message));
 	};
 	return (
-		<div className="max-w-sm my-56 mx-auto shadow-xl ">
-			<Card>
+		<div className="max-w-md my-56 mx-auto shadow-xl">
+			<Card className="p-3">
 				<div className="text-red-700 flex space-x-2">
 					{" "}
 					{error && (
