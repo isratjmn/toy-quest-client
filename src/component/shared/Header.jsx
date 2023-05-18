@@ -9,6 +9,7 @@ const Header = ({ login }) => {
 	const handleLogOut = () => {
 		logOut();
 	};
+
     return (
         <div
 			style={login && { background: "black", top: "0" }}
@@ -22,14 +23,12 @@ const Header = ({ login }) => {
 				<div>
 					<Link to="/">
 						<img
-							src=""
-							className="md:mr-3 mb-2 ml-6 lg:ml-12 sm:h-9 h-24"
-							alt="img"
+							src="https://i.ibb.co/QHqWjDp/logo.png"
+							className="w-28"
+							alt="logo"
 						/>
 					</Link>
-					<span className=" text-red-600 text-xl font-bold whitespace-nowrap dark:text-white">
-						FlavorFushion
-					</span>
+					
 				</div>
 
 				<div className="flex md:order-2">
@@ -60,9 +59,10 @@ const Header = ({ login }) => {
 							</Dropdown.Item>
 						</Dropdown>
 					) : (
-						<Link to="/login" className="btn-primary mr-5 md:mr-0">
+						<Link to="/login" className=" text-white bg-purple-700 hover:bg-purple-800 px-5 py-2 bg-primary rounded-md transition-all duration-150 cursor-pointer mr-5 md:mr-0">
 							Login
 						</Link>
+						
 					)}
 
 					<Navbar.Toggle />
@@ -86,7 +86,17 @@ const Header = ({ login }) => {
 								: "text-black md:text-inherit text-xl"
 						}
 					>
-						Blog
+						All Toys
+					</NavLink>
+					<NavLink
+						to="/blog"
+						className={({ isActive }) =>
+							isActive
+								? "text-primary text-xl font-semibold"
+								: "text-black md:text-inherit text-xl"
+						}
+					>
+						Blogs
 					</NavLink>
 				</Navbar.Collapse>
 			</Navbar>
