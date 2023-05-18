@@ -6,7 +6,15 @@ export default {
 		"node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
 	],
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				'InterVar': ['Inter var, sans-serif'],
+				'popins': ['Poppins', 'sans-serif']
+			},
+			colors: {
+				'primary': '#0000D0'
+			}
+		},
 	},
 	plugins: [require("flowbite/plugin")],
 };
