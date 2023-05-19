@@ -10,7 +10,7 @@ const ImageGallery = () => {
 				Toy Gallery{" "}
 			</h2>
 
-			<p className="my-5 lg:w-[50%] mx-auto text-center leading-7 text-base text-slate-800 mb-10 md:mb-24">
+			<p className="my-5 lg:w-[50%] mx-auto text-center leading-7 text-lg text-slate-800 mb-10 md:mb-24">
 				Toys are specifically crafted to provide interactive and
 				hands-on experiences that promote learning in various areas such
 				as cognitive skills, problem-solving abilities, creativity, and

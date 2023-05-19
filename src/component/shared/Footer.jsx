@@ -14,14 +14,21 @@ const Footer = () => {
 	return (
 		<div>
 			<div className="bg-[#FFF3F1]">
-				<footer className="section px-4 text-black lg:mt-96 pt-10 lg:pt-8">
+				<footer className="section px-4 text-black lg:mt-40 pt-10 lg:pt-8">
 					<div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-10 mb-8 mx-auto w-full max-w-screen-xl">
 						<div className="mb-6 md:mb-0">
-							<img
-								src="https://i.ibb.co/JzWXq36/logo.png"
-								className="h-28"
-								alt="logo"
-							/>
+							<div>
+								<Link to="/">
+									<img
+										src="https://i.ibb.co/bRsdw8v/logo2.png"
+										className="w-24"
+										alt="logo"
+									/>
+									<span className=" text-[#4c4cf1] text-xl font-extrabold font-popins whitespace-nowrap dark:text-white">
+										ToyQuest
+									</span>
+								</Link>
+							</div>
 							<p className="text-base my-4 dark:text-gray-400 font-medium">
 								Educational and learning toys are designed to
 								engage children in meaningful play while

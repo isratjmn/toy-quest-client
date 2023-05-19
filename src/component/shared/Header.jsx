@@ -23,10 +23,13 @@ const Header = ({ login }) => {
 				<div>
 					<Link to="/">
 						<img
-							src="https://i.ibb.co/JzWXq36/logo.png"
+							src="https://i.ibb.co/bRsdw8v/logo2.png"
 							className="w-24"
 							alt="logo"
 						/>
+						<span className=" text-[#4c4cf1] text-xl font-extrabold font-popins whitespace-nowrap dark:text-white">
+						ToyQuest
+					</span>
 					</Link>
 					
 				</div>
