@@ -8,7 +8,7 @@ const SinglaBlog = ({ blog }) => {
 				{" "}
 				{blog.question}{" "}
 			</h2>
-			<p className="font-popins font-medium text-slate-600 ">
+			<p className="font-popins font-medium text-sm leading-6 text-slate-900">
 				{" "}
 				{blog.answer}{" "}
 			</p>

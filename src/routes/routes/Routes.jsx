@@ -44,7 +44,7 @@ const router = createBrowserRouter([
 				element: <Blogs />,
 				loader: () =>
 					fetch(
-						"blog.json"
+						"http://localhost:5000/blogs"
 					),
 			},
 		],

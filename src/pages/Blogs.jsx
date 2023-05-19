@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import SingleBlog from "../component/SinglaBlog";
 
 const Blogs = () => {
+	
     const blogs = useLoaderData();
     return (
         <>
@@ -16,7 +17,6 @@ const Blogs = () => {
 			>
 			</div>
 			<div className="md:px-20 my-28">
-				
 					<h2 className="text-center font-popins text-3xl font-bold">
 						{" "}
 						Blogs 

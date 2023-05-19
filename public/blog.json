@@ -1,24 +1,20 @@
 [
 	{
-		"id": 1,
 		"question": "What is an access token and refresh token? How do they work and where should we store them on the client-side?",
 		"answer": "An access token is a credential that is issued by an authentication server after a user successfully logs in or authenticates. It represents the user's authorization to access protected resources on an API. Access tokens are typically short-lived and have an expiration time. They are used to authenticate API requests by including the token in the request headers or as part of the request parameters. Here's how the access token and refresh token flow typically works: 1.User logs in: The user provides their credentials (such as username and password) to the authentication server. 2. Authentication server verifies credentials: The authentication server verifies the provided credentials and, if valid, issues an access token and a refresh token. 3. Access token usage: The client includes the access token in the headers or parameters of API requests to access protected resources on the server. 4.Refresh token usage: If the access token expires, the client can make a request to the authentication server, presenting the refresh token. The server verifies the refresh token and issues a new access token, extending the user session. "
 	},
 
 	{
-		"id": 2,
 		"question": "Compare SQL and NoSQL databases",
 		"answer": "Scalability: 1. SQL: SQL databases typically scale vertically, meaning they require more powerful hardware to handle increasing workloads. Scaling horizontally (adding more servers) can be challenging due to the rigid structure and ACID (Atomicity, Consistency, Isolation, Durability) transactional requirements. 2. NoSQL: NoSQL databases are designed for horizontal scalability, making it easier to handle large amounts of data and high traffic loads. They distribute data across multiple servers, allowing for easy expansion as the workload grows. Query Language: 1.SQL: SQL databases use a standard query language (SQL) for querying and manipulating data. SQL offers a rich set of declarative queries and powerful features for filtering, joining, and aggregating data. 2. SQL: SQL databases use a standard query language (SQL) for querying and manipulating data. SQL offers a rich set of declarative queries and powerful features for filtering, joining, and aggregating data."
 	},
 
 	{
-		"id": 3,
 		"question": "What is Express js? What is Nest js?",
 		"answer": "Key features of Express.js include: 1. Routing: Express.js allows you to define routes to handle different HTTP methods (GET, POST, PUT, DELETE, etc.) and URLs. You can specify the logic to execute when a specific route is requested. 2. Middleware: Express.js leverages middleware functions that can be used to perform tasks such as parsing request bodies, handling authentication, logging, error handling, and more. Middleware functions are executed in a sequential order during the request-response cycle. Key features of NestJS include: 1. Modular Architecture: NestJS encourages the use of modular design patterns. It provides modules, controllers, and services that help organize the application into reusable and decoupled components. 2. Dependency Injection: NestJS leverages dependency injection, allowing you to easily manage dependencies between different modules and components. It promotes code reusability and testability by providing a clear separation of concerns."
 	},
 
 	{
-		"id": 4,
 		"question": "What is MongoDB aggregate and how does it work?",
 		"answer": "In MongoDB, the aggregate function is a powerful tool for performing advanced data analysis and processing operations on collections of documents. It allows you to process and transform data using a pipeline of stages, each stage performing a specific operation on the documents. Here's an overview of how the MongoDB aggregate function works: 1. Pipeline Stages: The aggregate function takes an array of pipeline stages as input. Each stage defines an operation to be performed on the documents. The stages are executed sequentially, with the output of one stage becoming the input for the next stage. 2. Various Pipeline Stages: MongoDB provides a rich set of pipeline stages that can be used in an aggregate pipeline. Some common stages include: 1. $match: Filters documents based on specified criteria, similar to the find operation. 2.$group: Groups documents together based on a specified key and performs aggregation operations like counting, summing, averaging, etc., on grouped data. 3. $sort: Sorts the documents based on specified fields."
 	}
