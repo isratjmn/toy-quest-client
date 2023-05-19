@@ -15,10 +15,8 @@ const Banner = () => {
 							Welcome to ToyQuest
 							
 						</h2>
-						{/* <h3 className="font-popins text-center font-bold text-3xl md:text-6xl my-4 md:my-8">
-							ToyQuest
-						</h3> */}
-						<p className="text-xl leading-8 font-normal text-center">
+						
+						<p className="text-lg leading-8 font-normal text-center">
 							Learning toys are designed to engage children in play while facilitating their educational and developmental growth ....
 						</p>
 						<button className="text-xl px-7 rounded-lg py-3 mt-8 bg-[#4c4cf1] hover:bg-blue-500">

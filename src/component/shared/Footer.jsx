@@ -14,8 +14,8 @@ const Footer = () => {
 	return (
 		<div>
 			<div className="bg-[#FFF3F1]">
-				<footer className="section px-4 text-black mt-96">
-					<div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-10 mb-8 border mx-auto w-full max-w-screen-xl">
+				<footer className="section px-4 text-black lg:mt-96 pt-10 lg:pt-8">
+					<div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-10 mb-8 mx-auto w-full max-w-screen-xl">
 						<div className="mb-6 md:mb-0">
 							<img
 								src="https://i.ibb.co/JzWXq36/logo.png"
@@ -46,19 +46,22 @@ const Footer = () => {
 								Contact Us
 							</h2>
 							<ul className="mb-6 text-base font-semibold dark:text-white">
-								<li className="mb-2 flex gap-2 items-center">
+								<li className="mb-2 flex gap-2 items-center text-base">
 									{" "}
-									<FaMapMarkerAlt className="text-[#4c4cf1]" />
-									150 Duffy Ave, Hicksville, NY 11801, USA
+									<FaMapMarkerAlt className="text-[#4c4cf1] text-3xl" />
+									No. 11A, Persiaran Selangor, Seksyen 15,
+									40200 Shah Alam, Selangor Darul Ehsan
 								</li>
-								<li className="mb-2 flex gap-2 items-center">
+								<li className="mb-2 flex gap-2 items-center text-base">
 									{" "}
-									<FaPhoneAlt className="text-[#4c4cf1]" /> +38 056 23 15 7851
+									<FaPhoneAlt className="text-[#4c4cf1]" />{" "}
+									+38 056 23 15 7851
 								</li>
-								<li className="mb-2 flex gap-2 items-center">
-									<FaPhoneAlt className="text-[#4c4cf1]" /> +1 234 56 48 7898
+								<li className="mb-2 flex gap-2 items-center text-base">
+									<FaPhoneAlt className="text-[#4c4cf1]" /> +1
+									234 56 48 7898
 								</li>
-								<li className="mb-2 flex gap-2 items-center">
+								<li className="mb-2 flex gap-2 items-center text-base">
 									{" "}
 									<FaRegEnvelope className="text-[#4c4cf1]" />
 									toyquest.info@mail.com
@@ -70,7 +73,7 @@ const Footer = () => {
 							<h2 className="font-bold text-[1.3rem] mb-8 lg:mt-12">
 								Information
 							</h2>
-							<ul className="dark:text-gray-400 font-medium">
+							<ul className="dark:text-gray-400 font-medium text-base">
 								<li className="mb-2">About ToyQuest</li>
 								<li className="mb-2">Career</li>
 								<li className="mb-2">Delivery Terms</li>
@@ -79,10 +82,10 @@ const Footer = () => {
 						</div>
 					</div>
 
-					<hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+					<hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-4" />
 					<div className="sm:flex sm:items-center sm:justify-between">
 						<span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-							<div className="pb-8">
+							<div className="pb-4">
 								Copyright &#169;{" "}
 								<span className="font-bold">IzmTechz</span>. All
 								rights deserved.
@@ -91,7 +94,7 @@ const Footer = () => {
 						<div className="flex flex-wrap justify-between gap-4 ">
 							<div className="flex gap-2"></div>
 						</div>
-						<div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+						<div className="flex pb-4 mt-4 space-x-6 sm:justify-center sm:mt-0">
 							<Link
 								to="#"
 								target="_blank"

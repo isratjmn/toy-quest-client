@@ -3,6 +3,7 @@ import Banner from "../component/Banner";
 import ImageGallery from "../component/ImageGallery";
 import AboutUs from "../component/AboutUs";
 import Category from "../component/Category";
+import OurBrands from "../component/OurBrands";
 
 const Home = () => {
 	return (
@@ -11,6 +12,7 @@ const Home = () => {
 			<AboutUs />
 			<Category />
 			<ImageGallery />
+			<OurBrands />
 		</>
 	);
 };

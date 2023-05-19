@@ -4,19 +4,19 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 const ImageGallery = () => {
 	return (
-		<>
+		<div className="my-10">
 			<h2 className="text-4xl mb-4 font-bold text-center mt-96 font-InterVar text-[#4c4cf1]">
 				{" "}
 				Toy Gallery{" "}
 			</h2>
 
-			<p className="my-5 w-[50%] mx-auto text-center leading-8 text-xl text-slate-800 mb-24">
+			<p className="my-5 lg:w-[50%] mx-auto text-center leading-7 text-base text-slate-800 mb-10 md:mb-24">
 				Toys are specifically crafted to provide interactive and
 				hands-on experiences that promote learning in various areas such
 				as cognitive skills, problem-solving abilities, creativity, and
 				more.
 			</p>
-			<div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+			<div class="grid grid-cols-1 md:grid-cols-4 gap-2 me-2 md:me-0 md:gap-4">
 				<div class="grid lg:gap-y-14 row-start-1 row-end-4">
 					<div>
 						<img
@@ -67,7 +67,7 @@ const ImageGallery = () => {
 						/>
 					</div>
 				</div>
-				<div class="grid lg:gap-y-28 row-start-1 row-end-5">
+				<div class="grid lg:gap-y-28 row-start-1 row-end-5 lg:row-end-4">
 					<div>
 						<img
 							class="h-[100%] max-w-full rounded-lg"
@@ -84,7 +84,7 @@ const ImageGallery = () => {
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 
