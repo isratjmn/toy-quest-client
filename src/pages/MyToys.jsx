@@ -14,7 +14,7 @@ const MyToys = () => {
 		const fetchData = async () => {
 			try {
 				const res = await fetch(
-					`http://localhost:5000/mytoys/${user?.email}?sort=${
+					`https://toy-quest-server.vercel.app/mytoys/${user?.email}?sort=${
 						asc ? "asc" : "desc"
 					}`
 				);
@@ -38,7 +38,7 @@ const MyToys = () => {
 			confirmButtonText: "Yes, delete it!",
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch(`http://localhost:5000/toydelete/${id}`, {
+				fetch(`https://toy-quest-server.vercel.app/toydelete/${id}`, {
 					method: "DELETE",
 				})
 					.then((res) => res.json())
@@ -86,6 +86,7 @@ const MyToys = () => {
 					</div>
 
 					<div class="relative overflow-x-auto shadow-md sm:rounded-lg md:mx-28  mb-20">
+						{/* Table */}
 						<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border">
 							<thead class="text-gray-700 text-base capitalize md:py-6 bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
 								<tr>

@@ -36,6 +36,7 @@ const Register = () => {
 	};
 	return (
 		<>
+			{/* Dynamic Routes */}
 			<Helmet>
 				<title>TQuest | Register</title>
 			</Helmet>
@@ -113,10 +114,7 @@ const Register = () => {
 					</form>
 					<span className="font-popins text-center font-bold mt-2">
 						Already Have an Account!!
-						<Link
-							to="/login"
-							className="text-orange-500 font-bold"
-						>
+						<Link to="/login" className="text-orange-500 font-bold">
 							{" "}
 							Login
 						</Link>

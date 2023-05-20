@@ -29,7 +29,7 @@ const UpdateToy = () => {
 
 	/* const handleToyUpdate = (data) => {
 		console.log(data);
-		fetch(`http://localhost:5000/updatedtoy/${data._id}`, {
+		fetch(`https://toy-quest-server.vercel.app/updatedtoy/${data._id}`, {
 			method: "PUT",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(data),
@@ -54,6 +54,8 @@ const UpdateToy = () => {
 					Update Toys
 				</h2>
 				<div className="w-[100%] md:w-3/5 mx-auto">
+					
+					{/* Form */}
 					<form onSubmit={() => handleSubmit(handleToyUpdate)}>
 						{errors.exampleRequired && (
 							<span>This field is required</span>

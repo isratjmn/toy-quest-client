@@ -14,7 +14,7 @@ const AddToy = () => {
 	
 	const onSubmit = (data) => {
 		const userData = { ...data, sellerEmail: user.email };
-		fetch("http://localhost:5000/addtoy", {
+		fetch("https://toy-quest-server.vercel.app/addtoy", {
 			method: "POST",
 			headers: { "content-type": "application/json" },
 			body: JSON.stringify(userData),
@@ -35,6 +35,7 @@ const AddToy = () => {
 
 	return (
 		<>
+		{/* Dynamic Title */}
 		<Helmet>
 				<title>TQuest | AddToy</title>
 			</Helmet>
@@ -44,7 +45,7 @@ const AddToy = () => {
 					<h2 className="text-4xl font-bold text-[#4c4cf1] mb-12 mt-16">
 						Add Your Toy
 					</h2>
-					
+					{/* Form */}
 					<form onSubmit={handleSubmit(onSubmit)} className="border-2 rounded-lg pt-8">
 						{errors.exampleRequired && (
 							<span>This field is required</span>

@@ -8,6 +8,7 @@ const ErrorPage = () => {
 	// console.log(error.message, status);
 	return (
 		<>
+		{/* Dynamic Routes */}
 			<Helmet>
 				<title>TQuest | Error</title>
 			</Helmet>

@@ -17,7 +17,8 @@ const SingleToy = ({ toy }) => {
 
 	return (
 		<>
-		<Helmet>
+			{/* Dynamic Routes */}
+			<Helmet>
 				<title>TQuest | Toy</title>
 			</Helmet>
 			<tr className="border">
@@ -40,12 +41,24 @@ const SingleToy = ({ toy }) => {
 						</div>
 					</div>
 				</td>
-				<td className="text-center text-base font-semibold">{sellerName}</td>
-				<td className="text-center text-base font-semibold">{toyName}</td>
-				<td className="text-center text-base font-semibold">{toyCategory}</td>
-				<td className="text-center text-base font-semibold">${toyPrice}</td>
-				<td className="text-center text-base font-semibold">{toyRating}</td>
-				<td className="text-center text-base font-semibold">{quantity}</td>
+				<td className="text-center text-base font-semibold">
+					{sellerName}
+				</td>
+				<td className="text-center text-base font-semibold">
+					{toyName}
+				</td>
+				<td className="text-center text-base font-semibold">
+					{toyCategory}
+				</td>
+				<td className="text-center text-base font-semibold">
+					${toyPrice}
+				</td>
+				<td className="text-center text-base font-semibold">
+					{toyRating}
+				</td>
+				<td className="text-center text-base font-semibold">
+					{quantity}
+				</td>
 				<td className="text-center">
 					<Link to={`/viewdetails/${_id}`}>
 						<button
@@ -53,7 +66,6 @@ const SingleToy = ({ toy }) => {
 							class="text-white bg-gradient-to-br from-purple-600 to-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
 						>
 							View Details
-
 						</button>
 					</Link>
 				</td>

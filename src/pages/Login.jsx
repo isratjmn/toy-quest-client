@@ -37,15 +37,6 @@ const Login = () => {
 			})
 			.catch((err) => setError(err.message));
 	};
-	/* const handleLoginGithub = () => {
-		loginWithGithub()
-			.then((res) => {
-				const loggedUser = res.user;
-				console.log(loggedUser);
-				navigate(from, { replace: true });
-			})
-			.catch((err) => setError(err.message));
-	}; */
 
 	return (
 		<>
@@ -110,15 +101,6 @@ const Login = () => {
 							</span>
 						</button>
 
-						{/* <button
-						onClick={handleLoginGithub}
-						className="flex items-center bg-blue-900 px-3 py-2 rounded-md shadow-md"
-					>
-						<FaGithub className="w-8 text-sm text-orange-500" />
-						<span className="font-popins text-white font-semibold">
-							GITHUB
-						</span>
-					</button> */}
 					</div>
 					<span className="font-popins text-center font-bold">
 						Do not have an account!!
