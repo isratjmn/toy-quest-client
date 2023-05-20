@@ -62,7 +62,7 @@ const Header = ({ login }) => {
 							</Dropdown.Item>
 						</Dropdown>
 					) : (
-						<Link to="/login" className=" text-white bg-purple-700 hover:bg-purple-800 px-5 py-2 bg-primary rounded-md transition-all duration-150 cursor-pointer mr-5 md:mr-0">
+						<Link to="/login" className=" text-white hover:bg-purple-800 px-5 py-2 bg-[#4c4cf1] rounded-md transition-all duration-150 cursor-pointer mr-5 md:mr-0">
 							Login
 						</Link>
 						
@@ -75,27 +75,47 @@ const Header = ({ login }) => {
 						to="/"
 						className={({ isActive }) =>
 							isActive
-								? "text-primary text-lg mb-3 font-bold"
-								: " text-black md:text-inherit text-lg"
+								? "text-[#4c4cf1] text-lg mb-3 font-bold"
+								: " text-black text-lg"
 						}
 					>
 						Home
 					</NavLink>
 					<NavLink
-						to="/blog"
+						to="/addtoy"
 						className={({ isActive }) =>
 							isActive
-								? "text-primary text-lg font-bold"
-								: "text-black md:text-inherit text-lg"
+								? "text-[#4c4cf1] text-[1.3rem] font-bold"
+								: "text-black text-lg"
+						}
+					>
+						Add Toy
+					</NavLink>
+					<NavLink
+						to="/alltoys"
+						className={({ isActive }) =>
+							isActive
+								? "text-[#4c4cf1] text-[1.3rem] font-bold"
+								: "text-black text-lg"
 						}
 					>
 						All Toys
 					</NavLink>
 					<NavLink
+						to="/addtoys"
+						className={({ isActive }) =>
+							isActive
+								? "text-[#4c4cf1] text-[1.3rem] font-bold"
+								: "text-black text-lg"
+						}
+					>
+						Add Toys
+					</NavLink>
+					<NavLink
 						to="/blog"
 						className={({ isActive }) =>
 							isActive
-								? "text-primary text-lg font-bold"
+								? "text-[#4c4cf1] text-[1.3rem] font-bold"
 								: "text-black md:text-inherit text-lg"
 						}
 					>

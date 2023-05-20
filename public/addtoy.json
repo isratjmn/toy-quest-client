@@ -1,0 +1,137 @@
+[
+	{
+		"toyPhoto": "https://i.ibb.co/6r5J8sL/toy-1.jpg",
+		"toyName": "Geography Puzzle",
+		"sellerName": "Fun Learning Store",
+		"sellerEmail": "info@funlearningstore.com",
+		"toyCategory": "Social Studies Toys",
+		"toyPrice": 17.99,
+		"toyRating": 4.1,
+		"quantity": 8,
+		"description": "A puzzle set featuring world maps and continents to enhance geography knowledge."
+	},
+	{
+		"toyPhoto": "https://i.ibb.co/d2MtwYL/toy-2.jpg",
+		"toyName": "Musical Keyboard",
+		"sellerName": "Melody Masters",
+		"sellerEmail": "sales@melodymasters.com",
+		"toyCategory": "Music Toys",
+		"toyPrice": 49.99,
+		"toyRating": 4.5,
+		"quantity": 3,
+		"description": "A musical keyboard with different instrument sounds and interactive learning modes."
+	},
+	{
+		"toyPhoto": "https://i.ibb.co/wwhv1WZ/toy-3.jpg",
+		"toyName": "Robot Dinosaur",
+		"sellerName": "Tech Toys Inc.",
+		"sellerEmail": "info@techtoysinc.com",
+		"toyCategory": "Science Toys",
+		"toyPrice": 59.99,
+		"toyRating": 4.9,
+		"quantity": 2,
+		"description": "A robotic dinosaur toy with programmable actions, sound effects, and educational features."
+	},
+
+	{
+		"toyPhoto": "https://i.ibb.co/x3KPJdk/toy-4.jpg",
+		"toyName": "Pattern Blocks Set",
+		"sellerName": "Math Masters",
+		"sellerEmail": "sales@mathmasters.com",
+		"toyCategory": "Math Toys",
+		"toyPrice": 12.99,
+		"toyRating": 4.3,
+		"quantity": 10,
+		"description": "A set of pattern blocks for exploring geometric shapes, symmetry, and pattern recognition."
+	},
+	{
+		"toyPhoto": "https://i.ibb.co/W6b2BPW/toy-5.jpg",
+		"toyName": "Robotic Arm Kit",
+		"sellerName": "Tech Wizards",
+		"sellerEmail": "info@techwizards.com",
+		"toyCategory": "Engineering Toys",
+		"toyPrice": 34.99,
+		"toyRating": 4.7,
+		"quantity": 6,
+		"description": "A DIY robotic arm kit to learn about mechanics, robotics, and programming principles."
+	},
+	{
+		"toyPhoto": "https://i.ibb.co/fFNjJ9t/toy-9.jpg",
+		"toyName": "Educational Robot",
+		"sellerName": "Toy World",
+		"sellerEmail": "toyworld@example.com",
+		"toyCategory": "Science Toys",
+		"toyPrice": 29.99,
+		"toyRating": 4.5,
+		"quantity": 10,
+		"description": "This educational robot helps children learn coding and robotics through interactive play."
+	},
+	{
+		"toyPhoto": "https://i.ibb.co/xCQ8rn4/toy-10.jpg",
+		"toyName": "Math Puzzle Set",
+		"sellerName": "Fun Learning Store",
+		"sellerEmail": "info@funlearningstore.com",
+		"toyCategory": "Math Toys",
+		"toyPrice": 14.99,
+		"toyRating": 4.2,
+		"quantity": 5,
+		"description": "A set of math puzzles and games to develop problem-solving and critical thinking skills."
+	},
+	{
+		"toyPhoto": "https://i.ibb.co/Zx9Hzch/toy-8.png",
+		"toyName": "Language Flashcards",
+		"sellerName": "ABC Toys",
+		"sellerEmail": "sales@abctoys.com",
+		"toyCategory": "Language Toys",
+		"toyPrice": 9.99,
+		"toyRating": 4.0,
+		"quantity": 15,
+		"description": "Flashcards with words and images to improve vocabulary and language skills in an interactive way."
+	},
+	{
+		"toyPhoto": "https://i.ibb.co/nR9Fftd/toy-11.jpg",
+		"toyName": "Building Blocks Set",
+		"sellerName": "Creative Toys",
+		"sellerEmail": "info@creativetoys.com",
+		"toyCategory": "Engineering Toys",
+		"toyPrice": 24.99,
+		"toyRating": 4.8,
+		"quantity": 8,
+		"description": "A set of building blocks to encourage creativity, spatial awareness, and fine motor skills."
+	},
+	{
+		"toyPhoto": "https://i.ibb.co/Y3F1RG1/toy-13.jpg",
+		"toyName": "Microscope Kit",
+		"sellerName": "Science Lab Supplies",
+		"sellerEmail": "sales@sciencelabsupplies.com",
+		"toyCategory": "Science Toys",
+		"toyPrice": 49.99,
+		"toyRating": 4.6,
+		"quantity": 3,
+		"description": "A beginner's microscope kit with slides and accessories for exploring the microscopic world."
+	},
+	{
+		"toyPhoto": "https://i.ibb.co/QHptRc7/toy-6.jpg",
+		"toyName": "Spelling Puzzle",
+		"sellerName": "Learning Innovations",
+		"sellerEmail": "contact@learninginnovations.com",
+		"toyCategory": "Language Toys",
+		"toyPrice": 12.99,
+		"toyRating": 4.3,
+		"quantity": 12,
+		"description": "A puzzle game that helps children learn and spell words while having fun."
+	},
+	{
+		"toyPhoto": "https://i.ibb.co/nc5xH0f/toy-12.jpg",
+		"toyName": "Robotics Kit",
+		"sellerName": "Tech Gadgets",
+		"sellerEmail": "info@techgadgets.com",
+		"toyCategory": "Engineering Toys",
+		"toyPrice": 39.99,
+		"toyRating": 4.7,
+		"quantity": 6,
+		"description": "A hands-on robotics kit to introduce kids to programming and robotics concepts."
+	}
+]
+
+

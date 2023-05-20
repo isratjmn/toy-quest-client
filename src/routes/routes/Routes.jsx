@@ -7,6 +7,8 @@ import MainLayout from "../../Layouts/MainLayout";
 import LoginLayouts from "../../Layouts/LoginLayouts";
 import BlogLayout from "../../Layouts/BlogLayout";
 import Blogs from "../../pages/Blogs";
+import AllToys from "../../pages/AllToys";
+import AddToy from "../../pages/AddToy";
 
 const router = createBrowserRouter([
 	{
@@ -17,6 +19,14 @@ const router = createBrowserRouter([
 			{
 				path: "/",
 				element: <Home />,
+			},
+			{
+				path: "/alltoys",
+				element: <AllToys />,
+			},
+			{
+				path: "/addtoy",
+				element: <AddToy />,
 			},
 		],
 	},
@@ -42,10 +52,7 @@ const router = createBrowserRouter([
 			{
 				path: "/blog",
 				element: <Blogs />,
-				loader: () =>
-					fetch(
-						"http://localhost:5000/blogs"
-					),
+				loader: () => fetch("http://localhost:5000/blogs"),
 			},
 		],
 	},
