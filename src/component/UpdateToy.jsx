@@ -1,74 +1,64 @@
 import React, { useContext, useEffect } from "react";
-// import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Button, Modal } from "flowbite-react";
-// import { AuthContext } from "../provider/AuthProvider";
 
-import { HiX } from "react-icons/hi";
 import { Helmet } from "react-helmet";
+import { useLoaderData } from "react-router-dom";
 
-const UpdateToy = (props) => {
-	// const { user } = useContext(AuthContext);
-	// const { id } = useParams();
+const UpdateToy = () => {
+	const updateField = useLoaderData();
+
+	const {
+		_id,
+		toyName,
+		toyPhoto,
+		sellerName,
+		toyCategory,
+		description,
+		toyPrice,
+		toyRating,
+		quantity,
+	} = updateField;
+	console.log(updateField);
+
 	const {
 		register,
 		handleSubmit,
-		watch,
 		formState: { errors },
 	} = useForm();
 
-    console.log(props.job);
-
-	/* 	useEffect(() => {
-		fetch(`http://localhost:5000/updatedtoy/${id}`)
+	/* const handleToyUpdate = (data) => {
+		console.log(data);
+		fetch(`http://localhost:5000/updatedtoy/${data._id}`, {
+			method: "PUT",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(data),
+		})
 			.then((res) => res.json())
-			.then((data) => console.log(data));
-	}, []); */
-
-	const { handleToyUpdate } = props;
+			.then((result) => {
+				if (result.modifiedCount > 0) {
+					setControl(!control);
+				}
+				console.log(result);
+			});
+	}; */
 
 	return (
 		<div>
 			<Helmet>
 				<title>TQuest | UpdateToys</title>
 			</Helmet>
-			{/* Main modal */}
-			<Modal
-				{...props}
-				size="lg"
-				aria-labelledby="edit"
-				centered
-				dismissible={true}
-			>
-				<Modal.Header className="sr-only"></Modal.Header>
-					<Button className="ms-auto m-3" onClick={props.onHide}>
-                        <HiX className="text-lg"></HiX>
-					</Button>
-				<Modal.Body>
 
+			<div className="bg-[#FFF3F1] mt-64 py-6 md:mx-20 rounded-xl mb-8">
+				<h2 className="text-4xl font-bold text-[#4c4cf1] mb-12 mt-16 text-center">
+					Update Toys
+				</h2>
+				<div className="w-[100%] md:w-3/5 mx-auto">
 					<form onSubmit={() => handleSubmit(handleToyUpdate)}>
 						{errors.exampleRequired && (
 							<span>This field is required</span>
 						)}
-						<div className="grid grid-cols-2 gap-3">
-							<div>
-								{/* Toy Photo URL  */}
-								<div className="form-control flex flex-col d-none">
-									<label className="label me-auto mb-2">
-										<span className="label-text font-semibold text-sm ms-auto">
-											id
-										</span>
-									</label>
-									<input
-										required
-										className="input border focus:outline-none shadow"
-										type="text"
-										defaultValue={props.toy?._id}
-										{...register("_id")}
-									/>
-								</div>
-							</div>
-
+						<div className="grid grid-cols-2 gap-3 w-[80%] mx-auto">
 							<div>
 								{/* Seller Name */}
 								<div className="form-control flex flex-col">
@@ -79,9 +69,9 @@ const UpdateToy = (props) => {
 									</label>
 									<input
 										required
-										className="input border focus:outline-none shadow"
+										className="input border rounded-md focus:outline-none shadow"
 										type="text"
-										defaultValue={props.toy?.sellerName}
+										defaultValue={sellerName}
 										{...register("sellerName")}
 									/>
 								</div>
@@ -96,9 +86,9 @@ const UpdateToy = (props) => {
 										</span>
 									</label>
 									<select
-										className="input"
+										className="input rounded-md"
 										{...register("toyCategory")}
-										defaultValue={props.toy?.toyCategory}
+										defaultValue={toyCategory}
 									>
 										<option value="scientific">
 											Scientific Toys
@@ -109,7 +99,9 @@ const UpdateToy = (props) => {
 										<option value="math">Math Toys</option>
 									</select>
 								</div>
+							</div>
 
+							<div>
 								{/* Toy Price */}
 								<div className="form-control flex flex-col mt-3">
 									<label className="label me-auto mb-2">
@@ -119,41 +111,15 @@ const UpdateToy = (props) => {
 									</label>
 									<input
 										required
-										className="input border focus:outline-none shadow"
+										className="input border rounded-md focus:outline-none shadow"
 										type="number"
-										defaultValue={props.toy?.toyPrice}
+										defaultValue={toyPrice}
 										{...register("toyPrice")}
 									/>
 								</div>
 							</div>
 
 							<div>
-								{/* Toy Rating */}
-								<div className="form-control flex flex-col">
-									<label className="label me-auto mb-2">
-										<span className="label-text font-semibold text-sm pb-4">
-											Toy Rating
-										</span>
-									</label>
-									<input
-										className="input border focus:outline-none shadow"
-										type="text"
-										defaultValue={props.toy?.toyRating}
-										{...register("toyRating", {
-											pattern: {
-												value: /^(?:[0-4](\.\d{1,2})?|5(\.0{1,2})?)$/,
-												message:
-													"Please Write Your Rating Between 0 and 5",
-											},
-										})}
-									/>
-									{errors.toyRating && (
-										<span className="text-xs text-red-800 mt-1 text-start">
-											{errors.toyRating.message}
-										</span>
-									)}
-								</div>
-
 								{/* Available Quantity */}
 								<div className="form-control flex flex-col mt-3">
 									<label className="label me-auto mb-2">
@@ -163,9 +129,9 @@ const UpdateToy = (props) => {
 									</label>
 									<input
 										required
-										className="input border focus:outline-none shadow"
+										className="input border rounded-md focus:outline-none shadow"
 										type="text"
-										defaultValue={props.toy?.quantity}
+										defaultValue={quantity}
 										{...register("quantity")}
 									/>
 								</div>
@@ -173,7 +139,7 @@ const UpdateToy = (props) => {
 						</div>
 
 						{/* Toy Details */}
-						<div className="form-control mt-4 flex flex-col">
+						<div className="form-control mt-4 flex flex-col w-[80%] mx-auto">
 							<label className="label me-auto mb-2">
 								<span className="label-text font-semibold text-sm">
 									Toy Details
@@ -181,14 +147,14 @@ const UpdateToy = (props) => {
 							</label>
 							<textarea
 								required
-								className="input border focus:outline-none shadow"
+								className="input border rounded-md focus:outline-none shadow"
 								type="text"
-								defaultValue={props.toy?.toyDetails}
-								{...register("toyDetails")}
+								defaultValue={description}
+								{...register("description")}
 							/>
 						</div>
 
-						<div className="form-control mt-6">
+						<div className="form-control mt-6 w-[80%] mb-8 mx-auto">
 							<input
 								className="text-lg w-full btn btn-full btn-block border-0 rounded-lg py-2 bg-[#4c4cf1] hover:bg-blue-500 text-white mt-5 tracking-widest"
 								type="submit"
@@ -196,8 +162,8 @@ const UpdateToy = (props) => {
 							/>
 						</div>
 					</form>
-				</Modal.Body>
-			</Modal>
+				</div>
+			</div>
 		</div>
 	);
 };

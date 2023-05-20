@@ -9,7 +9,6 @@ const ViewDetails = () => {
 		toyName,
 		toyPhoto,
 		sellerName,
-		sellerEmail,
 		toyCategory,
 		description,
 		toyPrice,

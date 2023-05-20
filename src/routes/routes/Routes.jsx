@@ -9,13 +9,10 @@ import BlogLayout from "../../Layouts/BlogLayout";
 import Blogs from "../../pages/Blogs";
 import AllToys from "../../pages/AllToys";
 import AddToy from "../../pages/AddToy";
-// import ViewDetails from "../../pages/ViewDetails";
 import PrivetRoute from "../PrivetRoute";
 import MyToys from "../../pages/MyToys";
 import UpdateToy from "../../component/UpdateToy";
 import ViewDetails from "../../pages/ViewDetails";
-// import MyToys from "../../pages/MyToys";
-// import UpdateToy from "../../component/UpdateToy";
 
 const router = createBrowserRouter([
 	{
@@ -33,7 +30,12 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "viewdetails/:id",
-				element: <ViewDetails />,
+				element: (
+					<PrivetRoute>
+						{" "}
+						<ViewDetails />
+					</PrivetRoute>
+				),
 				loader: ({ params }) =>
 					fetch(`http://localhost:5000/viewdetails/${params.id}`),
 			},
@@ -43,14 +45,17 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "mytoys",
-				element: (
-					<PrivetRoute>
-						<MyToys />
-					</PrivetRoute>
-				),
+				element: <MyToys />,
+			},
+			{
+				path: "/updatedtoy/:id",
+				element: <UpdateToy />,
+				loader: ({ params }) =>
+					fetch(`http://localhost:5000/updatedtoy/${params.id}`),
 			},
 		],
 	},
+
 	{
 		path: "/login",
 		element: <LoginLayouts />,
@@ -77,11 +82,6 @@ const router = createBrowserRouter([
 			},
 		],
 	},
-	/* 	{
-		path: "/updatedtoys/:id",
-		element: <UpdateToy />,
-		loader: ({params}) => fetch(`http://localhost:5000/updatedtoy/${params.id}`),
-	}, */
 ]);
 
 export default router;

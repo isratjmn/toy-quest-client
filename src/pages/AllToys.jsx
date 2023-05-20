@@ -1,39 +1,61 @@
-
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import SingleToy from "./SingleToy";
 import { Helmet } from "react-helmet";
 
 const AllToys = () => {
 	const [toys, setToys] = useState([]);
-	
+	const searchRef = useRef(null);
+	const [search, setSearch] = useState([]);
+	const [searchToy, setSearchToy] = useState("");
+
+	// Filter base on Toy Name
+	const searchedToys = toys.filter((toy) =>
+		toy.toyName.toLowerCase().includes(searchToy.toLowerCase())
+	);
 
 	useEffect(() => {
-		fetch("http://localhost:5000/alltoys")
+		fetch(`http://localhost:5000/alltoys?search=${search}`)
 			.then((res) => res.json())
 			.then((result) => {
 				setToys(result);
 			});
-	}, []);
+	}, [search]);
+
+	const handleSearch = () => {
+		console.log(searchRef.current.value);
+		setSearch(searchRef.current.value);
+	};
 
 	return (
 		<>
-		<Helmet>
+			<Helmet>
 				<title>TQuest | AddToy</title>
 			</Helmet>
-		<div className="md:mx-40 my-60 bg-[#FFF3F1] grid md:grid-cols-1 rounded-xl">
-			<div className="overflow-x-auto w-full pt-8">
-				<h2 className="text-4xl font-bold text-[#4c4cf1] mb-12 mt-20 text-center">
-					Toys Collection
-				</h2>
+			<div className="md:mx-40 my-60 bg-[#FFF3F1] grid md:grid-cols-1 rounded-xl">
+				<div className="overflow-x-auto w-full pt-8">
+					<h2 className="text-4xl font-bold text-[#4c4cf1] mb-12 mt-20 text-center">
+						Toys Collection
+					</h2>
+					<div className="flex justify-center mb-4">
+						<div className="form-control shadow">
+							<div className="input-group">
+								<input
+									onChange={(e) =>
+										setSearchToy(e.target.value)
+									}
+									type="text"
+									placeholder="Search by Toy Name"
+									className="input input-bordered border-0 focus:outline-none"
+								/>
+								<button className="btn btn-square w-24 py-2 border-0 tracking-widest hover:bg-gray-200 bg-blue-700">
+									Search
+								</button>
+								
+							</div>
+						</div>
+					</div>
 
-				<div class="relative overflow-x-auto shadow-md sm:rounded-lg md:mx-5 lg:mx-28 mb-20">
-					<form className="mb-8 lg:w-[50%] mx-auto">
-						<label
-							for="search"
-							class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
-						>
-							Search
-						</label>
+					{/* <div className="form-control w-[40%] mx-auto mb-8">
 						<div class="relative">
 							<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
 								<svg
@@ -53,38 +75,29 @@ const AllToys = () => {
 								</svg>
 							</div>
 							<input
-								type="search"
-								id="search"
-								class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+								type="text"
+								ref={searchRef}
+								class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50"
 								placeholder="Search"
 								required
 							/>
+
 							<button
 								type="submit"
-								class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+								onClick={handleSearch}
+								class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 font-medium rounded-lg text-sm px-4 py-2 "
 							>
 								Search
 							</button>
 						</div>
-					</form>
+					</div> */}
+					
 
 					<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border">
 						<thead class="text-gray-700 text-base capitalize md:py-6 bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
 							<tr>
 								<th scope="col" class="p-4">
-									<div class="flex items-center">
-										<input
-											id="checkbox-all-search"
-											type="checkbox"
-											class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-										/>
-										<label
-											for="checkbox-all-search"
-											class="sr-only"
-										>
-											checkbox
-										</label>
-									</div>
+									Serial No
 								</th>
 								<th scope="col" class="px-6 py-3">
 									Images
@@ -113,14 +126,13 @@ const AllToys = () => {
 							</tr>
 						</thead>
 						<tbody>
-							{toys.map((toy) => (
+							{searchedToys.map((toy) => (
 								<SingleToy key={toy._id} toy={toy}></SingleToy>
 							))}
 						</tbody>
 					</table>
 				</div>
 			</div>
-		</div>
 		</>
 	);
 };

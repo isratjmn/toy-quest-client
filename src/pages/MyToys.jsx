@@ -2,21 +2,21 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { Link } from "react-router-dom";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
-import UpdateToy from "../component/UpdateToy";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
 
 const MyToys = () => {
 	const { user } = useContext(AuthContext);
 	const [toys, setToys] = useState([]);
-	const [modalShow, setModalShow] = useState(false);
-	const [control, setControl] = useState(false);
+	const [asc, setAsc] = useState(true);
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
 				const res = await fetch(
-					`http://localhost:5000/mytoys/${user?.email}`
+					`http://localhost:5000/mytoys/${user?.email}?sort=${
+						asc ? "asc" : "desc"
+					}`
 				);
 				const data = await res.json();
 				setToys(data);
@@ -25,9 +25,7 @@ const MyToys = () => {
 			}
 		};
 		fetchData();
-	}, [user, control]);
-
-
+	}, [user, asc]);
 
 	const handleDelete = (id) => {
 		Swal.fire({
@@ -65,23 +63,6 @@ const MyToys = () => {
 		});
 	};
 
-	const handleToyUpdate = (data) => {
-		console.log(data);
-
-		fetch(`http://localhost:5000/updatedtoy/${data._id}`, {
-			method: "PUT",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify(data),
-		})
-			.then((res) => res.json())
-			.then((result) => {
-				if (result.modifiedCount > 0) {
-					setControl(!control);
-				}
-				console.log(result);
-			});
-	};
-
 	return (
 		<div>
 			<Helmet>
@@ -89,32 +70,25 @@ const MyToys = () => {
 			</Helmet>
 			<div className="overflow-x-hidden lg:mx-40 my-60 bg-[#FFF3F1] grid md:grid-cols-1 rounded-xl">
 				<div className="overflow-x-auto w-full pt-8">
-					<h2 className="text-4xl font-bold text-[#4c4cf1] mb-12 mt-20 text-center">
+					<h2 className="text-4xl font-bold text-[#4c4cf1] mb-12 mt-20 text-center mx-auto">
 						My Added Toys
 					</h2>
 					<h3 className="font-bold text-center mb-6 text-pink-700 text-xl">
 						Total Added Toys: {toys.length}
 					</h3>
+					<div className="text-center mb-6">
+						<button
+							className="text-xl px-7 text-white rounded-lg py-3 mt-8 bg-[#4c4cf1] hover:bg-blue-500"
+							onClick={() => setAsc(!asc)}
+						>
+							{asc ? "Price High To Low" : "Price Low To High"}
+						</button>
+					</div>
 
 					<div class="relative overflow-x-auto shadow-md sm:rounded-lg md:mx-28  mb-20">
 						<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border">
 							<thead class="text-gray-700 text-base capitalize md:py-6 bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
 								<tr>
-									{/* <th scope="col" class="p-4">
-										<div class="flex items-center">
-											<input
-												id="checkbox-all-search"
-												type="checkbox"
-												class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-											/>
-											<label
-												for="checkbox-all-search"
-												class="sr-only"
-											>
-												SL
-											</label>
-										</div>
-									</th> */}
 									<th scope="col" class="px-6 py-3">
 										Sl
 									</th>
@@ -134,18 +108,16 @@ const MyToys = () => {
 										Seller Information
 									</th>
 									<th scope="col" class="px-6 py-3">
-										Edit
-									</th>
-									<th scope="col" class="px-6 py-3">
-										Delete
+										Action
 									</th>
 								</tr>
 							</thead>
-
 							<tbody>
 								{toys.map((toy, index) => (
 									<tr key={toy._id}>
-										<th className="text-xl text-center">{index+ 1}</th>
+										<th className="text-xl text-center">
+											{index + 1}
+										</th>
 										<th>
 											<img
 												className="w-24 h-24 object-contain"
@@ -168,39 +140,17 @@ const MyToys = () => {
 											<p>Name: {toy.sellerName}</p>
 											<p>Email: {toy.sellerEmail}</p>
 										</th>
-										<th>
-											<button
-												variant="primary"
-												onClick={() =>
-													setModalShow(true)
-												}
-												className="btn btn-secondary mr-2 me-auto"
-											>
-												<FaEdit className="mb-2 text-3xl text-black ms-8"></FaEdit>
-											</button>
 
-											<UpdateToy
-												show={modalShow}
-												onHide={() =>
-													setModalShow(false)
-												}
-												toy={toy}
-												handleToyUpdate={handleToyUpdate}
-												className="btn btn-primary"
-											></UpdateToy>
-										</th>
 										<th>
-											{/* <Link
-												to={`/updatedtoys/${toy._id}`}
-											>
-												<FaEdit className="mb-2 text-3xl text-black"></FaEdit>
-											</Link> */}
+											<Link to={`/updatedtoy/${toy._id}`}>
+												<FaEdit className="mb-2 text-3xl text-black mx-auto"></FaEdit>
+											</Link>
 											<buttton
 												onClick={() =>
 													handleDelete(toy._id)
 												}
 											>
-												<FaTrashAlt className=" text-3xl text-red-500 mx-auto"></FaTrashAlt>
+												<FaTrashAlt className="text-3xl text-red-500 mx-auto"></FaTrashAlt>
 											</buttton>
 										</th>
 									</tr>

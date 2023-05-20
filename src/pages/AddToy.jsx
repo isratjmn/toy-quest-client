@@ -9,9 +9,9 @@ const AddToy = () => {
 	const {
 		register,
 		handleSubmit,
-		watch,
 		formState: { errors },
 	} = useForm();
+	
 	const onSubmit = (data) => {
 		const userData = { ...data, sellerEmail: user.email };
 		fetch("http://localhost:5000/addtoy", {
@@ -44,7 +44,8 @@ const AddToy = () => {
 					<h2 className="text-4xl font-bold text-[#4c4cf1] mb-12 mt-16">
 						Add Your Toy
 					</h2>
-					<form onSubmit={handleSubmit(onSubmit)}>
+					
+					<form onSubmit={handleSubmit(onSubmit)} className="border-2 rounded-lg pt-8">
 						{errors.exampleRequired && (
 							<span>This field is required</span>
 						)}
