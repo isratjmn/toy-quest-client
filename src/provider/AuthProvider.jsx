@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 export const AuthContext = createContext(null);
 import { app } from '../firebase/firebase.config';
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
 	const [user, setUser] = useState(null);
@@ -9,7 +9,6 @@ const AuthProvider = ({ children }) => {
 
 	const googleProvider = new GoogleAuthProvider();
 
-	// const githubProbider = new GithubAuthProvider();
 
 	// Create Account Email And Password
 	const resgisterWithEmailPassword = (email, password) => {
@@ -25,10 +24,7 @@ const AuthProvider = ({ children }) => {
 		setLoading(true);
 		return signInWithPopup(auth, googleProvider);
 	};
-	/* const loginWithGithub = () => {
-		setLoading(true);
-		return signInWithPopup(auth, githubProbider);
-	}; */
+
 	const logOut = () => {
 		setLoading(true);
 		return signOut(auth);
@@ -48,7 +44,6 @@ const AuthProvider = ({ children }) => {
 		resgisterWithEmailPassword,
 		loginWithEmailAndPassword,
 		loginWithGoogle,
-		// loginWithGithub,
 		logOut,
 	};
 	return (

@@ -115,7 +115,7 @@ const Register = () => {
 						Already Have an Account!!
 						<Link
 							to="/login"
-							className="text-orange-500 font-bold underline"
+							className="text-orange-500 font-bold"
 						>
 							{" "}
 							Login

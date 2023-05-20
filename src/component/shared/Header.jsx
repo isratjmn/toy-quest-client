@@ -71,52 +71,62 @@ const Header = ({ login }) => {
 					<Navbar.Toggle />
 				</div>
 				<Navbar.Collapse className="bg-white md:bg-inherit p-8 md:p-0 text-black">
+					
 					<NavLink
 						to="/"
 						className={({ isActive }) =>
 							isActive
-								? "text-[#4c4cf1] text-lg mb-3 font-bold"
-								: " text-black text-lg"
+								? "text-[#4c4cf1] text-lg font-popins font-bold"
+								: " text-black text-lg font-popins font-bold"
 						}
 					>
 						Home
 					</NavLink>
 					<NavLink
-						to="/addtoy"
-						className={({ isActive }) =>
-							isActive
-								? "text-[#4c4cf1] text-[1.3rem] font-bold"
-								: "text-black text-lg"
-						}
-					>
-						Add Toy
-					</NavLink>
-					<NavLink
 						to="/alltoys"
 						className={({ isActive }) =>
 							isActive
-								? "text-[#4c4cf1] text-[1.3rem] font-bold"
-								: "text-black text-lg"
+								? "text-[#4c4cf1] font-popins font-bold text-lg"
+								: "text-black text-lg font-popins font-bold"
 						}
 					>
 						All Toys
 					</NavLink>
-					<NavLink
-						to="/addtoys"
+
+					{
+						user?.email ?
+						<>
+							<NavLink
+						to="/addtoy"
 						className={({ isActive }) =>
 							isActive
-								? "text-[#4c4cf1] text-[1.3rem] font-bold"
-								: "text-black text-lg"
+								? "text-[#4c4cf1] font-popins font-bold text-lg"
+								: "text-black text-lg font-popins font-bold"
 						}
 					>
-						Add Toys
-					</NavLink>
+						Add A Toy
+							</NavLink>
+					
+							<NavLink
+								to="/mytoys"
+								className={({ isActive }) =>
+									isActive
+										? "text-[#4c4cf1] font-popins font-bold text-lg"
+										: "text-black text-lg font-popins font-bold"
+								}
+							>
+								My Toys
+							</NavLink>
+						</>
+					: ''
+					}
+					
 					<NavLink
-						to="/blog"
+						to="/blogs"
 						className={({ isActive }) =>
 							isActive
-								? "text-[#4c4cf1] text-[1.3rem] font-bold"
-								: "text-black md:text-inherit text-lg"
+								? "text-[#4c4cf1] font-popins font-bold text-lg"
+								: "text-black font-popins font-bold text-lg"
 						}
 					>
 						Blogs

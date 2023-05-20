@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 
 const ErrorPage = () => {
 	const { error, status } = useRouteError();
-	console.log(error.message, status);
+	// console.log(error.message, status);
 	return (
 		<>
 			<Helmet>
