@@ -1,4 +1,5 @@
 import React from "react";
+
 const Banner = () => {
 	return (
 		<>
@@ -15,7 +16,7 @@ const Banner = () => {
 						</h2>
 						
 						<p className="text-xl leading-8 font-normal text-center">
-							Learning toys are designed to engage children in play while facilitating their educational and developmental growth ....
+							Learning toys are designed to engage children in play while facilitating their educational and developmental growth.
 						</p>
 						<button className="text-xl px-7 rounded-lg py-3 mt-8 bg-[#4c4cf1] hover:bg-blue-500">
 							Subscribe

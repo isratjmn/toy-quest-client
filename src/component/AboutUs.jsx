@@ -5,11 +5,11 @@ import About2 from "./../assets/images/about_2.jpg";
 const AboutUs = () => {
 	return (
 		<>
-			<h2 className="text-4xl mb-4 font-bold text-center mt-44 font-InterVar text-[#4c4cf1]">
+			<h2 className="text-4xl mb-4 font-extrabold text-center mt-44 font-InterVar text-[#4c4cf1]">
 				{" "}
 				About Us{" "}
 			</h2>
-			<p className="my-5 lg:w-[50%] mx-auto text-center leading-7 text-lg text-slate-800 mb-10 md:mb-16">
+			<p className="my-5 w-[90%] lg:w-[50%] mx-auto text-center leading-7 text-lg text-slate-800 mb-10 md:mb-16">
 				Toys are specifically crafted to provide interactive and
 				hands-on experiences that promote learning in various areas such
 				as cognitive skills, problem-solving abilities, creativity, and
@@ -22,8 +22,8 @@ const AboutUs = () => {
 				</div>
 				<div className="section-title flex flex-col justify-center">
 					<div className=" px-8 py-12">
-						<div className="flex  mx-auto space-x-3"></div>
-						<p className="my-5 text-slate-800 leading-7 text-lg">
+						<div className="flex mx-auto space-x-3"></div>
+						<p className="text-slate-800 leading-7 text-lg">
 							Building blocks encourage children to explore their
 							creativity and spatial skills. They come in
 							different shapes, sizes, and materials, allowing
@@ -40,7 +40,7 @@ const AboutUs = () => {
 							toys. Common categories may include age groups,
 							brands, toy types, and popular themes. 
 							<br />
-							<br />
+							
 							Product Listings: Each toy category will have its dedicated
 							product listings, showcasing individual toys with
 							images, descriptions, pricing, and customer reviews.

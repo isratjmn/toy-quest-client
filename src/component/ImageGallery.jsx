@@ -5,12 +5,12 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 const ImageGallery = () => {
 	return (
 		<div className="my-10">
-			<h2 className="text-4xl mb-4 font-bold text-center mt-96 font-InterVar text-[#4c4cf1]">
+			<h2 className="text-4xl mb-4 font-extrabold text-center mt-96 font-InterVar text-[#4c4cf1]">
 				{" "}
 				Toy Gallery{" "}
 			</h2>
 
-			<p className="my-5 lg:w-[50%] mx-auto text-center leading-7 text-lg text-slate-800 mb-10 md:mb-24">
+			<p className="my-5 w-[95%] lg:w-[50%] mx-auto text-center leading-7 text-lg text-slate-800 mb-10 md:mb-24">
 				Toys are specifically crafted to provide interactive and
 				hands-on experiences that promote learning in various areas such
 				as cognitive skills, problem-solving abilities, creativity, and

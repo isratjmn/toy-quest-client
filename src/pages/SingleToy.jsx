@@ -16,7 +16,7 @@ const SingleToy = ({ toy }) => {
 
 	return (
 		<>
-			<tr>
+			<tr className="border">
 				<th scope="col" class="p-4">
 					<div class="flex items-center">
 						<input
@@ -36,12 +36,12 @@ const SingleToy = ({ toy }) => {
 						</div>
 					</div>
 				</td>
-				<td className="text-center">{sellerName}</td>
-				<td className="text-center">{toyName}</td>
-				<td className="text-center">{toyCategory}</td>
-				<td className="text-center">${toyPrice}</td>
-				<td className="text-center">{toyRating}</td>
-				<td className="text-center">{quantity}</td>
+				<td className="text-center text-base font-semibold">{sellerName}</td>
+				<td className="text-center text-base font-semibold">{toyName}</td>
+				<td className="text-center text-base font-semibold">{toyCategory}</td>
+				<td className="text-center text-base font-semibold">${toyPrice}</td>
+				<td className="text-center text-base font-semibold">{toyRating}</td>
+				<td className="text-center text-base font-semibold">{quantity}</td>
 				<td className="text-center">
 					<Link to={`../viewdetails/${_id}`}>
 						<button
