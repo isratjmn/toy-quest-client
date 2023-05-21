@@ -9,9 +9,12 @@ import BlogLayout from "../../Layouts/BlogLayout";
 import Blogs from "../../pages/Blogs";
 import AllToys from "../../pages/AllToys";
 import AddToy from "../../pages/AddToy";
-import ViewDetails from "../../pages/ViewDetails";
+// import ViewDetails from "../../pages/ViewDetails";
 import PrivetRoute from "../PrivetRoute";
 import MyToys from "../../pages/MyToys";
+import UpdateToy from "../../component/UpdateToy";
+// import MyToys from "../../pages/MyToys";
+// import UpdateToy from "../../component/UpdateToy";
 
 const router = createBrowserRouter([
 	{
@@ -30,12 +33,6 @@ const router = createBrowserRouter([
 			{
 				path: "addtoy",
 				element: <AddToy />,
-			},
-			{
-				path: "viewdetails/:id",
-				element: <ViewDetails />,
-				loader: ({ params }) =>
-					fetch(`http://localhost:5000/addtoy/${params.id}`),
 			},
 			{
 				path: "/mytoys",
@@ -72,6 +69,12 @@ const router = createBrowserRouter([
 				loader: () => fetch("http://localhost:5000/blogs"),
 			},
 		],
+	},
+	{
+		path: "/updatedtoys/:id",
+		element: <UpdateToy />,
+
+		// loader: ({params}) => fetch(`http://localhost:5000/updatedtoy/${params.id}`),
 	},
 ]);
 

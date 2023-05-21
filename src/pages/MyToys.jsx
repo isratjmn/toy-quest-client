@@ -7,7 +7,30 @@ const MyToys = () => {
 	const { user } = useContext(AuthContext);
 	const [toys, setToys] = useState([]);
 
-	const handleDelete = (_id) => {
+/* 	useEffect(() => {
+		fetch(`http://localhost:5000/mytoys/${user?.email}`)
+			.then((res) => res.json())
+			.then((data) => setToys(data));
+		console.log(toys);
+	}, [user]); */
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const res = await fetch(
+					`http://localhost:5000/mytoys/${user?.email}`
+				);
+				const data = await res.json();
+				setToys(data);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+
+		fetchData();
+	}, [user]);
+
+	/* const handleDelete = (_id) => {
 		Swal.fire({
 			title: "Are you sure?",
 			text: "You won't be able to revert this!",
@@ -41,14 +64,29 @@ const MyToys = () => {
 					});
 			}
 		});
-	};
+	}; */
 
-	useEffect(() => {
-		fetch(`http://localhost:5000/mytoys/${user?.email}`)
-			.then((res) => res.json())
-			.then((data) => setToys(data));
-            console.log(toys)
-	}, [user]);
+	/* 	const handleUpdatedToy = () => {
+		fetch(`http://localhost:5000/updatedtoy/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedToy)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Toys Updated Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+            })
+    } */
 
 	return (
 		<div>
@@ -128,17 +166,9 @@ const MyToys = () => {
 											<p>Email: {toy.sellerEmail}</p>
 										</th>
 										<th>
-											<Link to={`updateToy/${toy._id}`}>
-												<FaEdit className="mb-2 text-3xl text-black"></FaEdit>
-											</Link>
-											<button
-												onClick={() =>
-													handleDelete(toy._id)
-												}
-											>
-												<FaTrashAlt className=" text-3xl text-red-500"></FaTrashAlt>
-											</button>
-										</th>
+                                            <Link to={`/updatedtoys/${toy._id}`}><FaEdit className="mb-2 text-3xl text-black"></FaEdit></Link>
+                                            
+                                        </th>
 									</tr>
 								))}
 							</tbody>
