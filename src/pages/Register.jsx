@@ -37,7 +37,7 @@ const Register = () => {
 	return (
 		<>
 			<Helmet>
-				<title>PHero | Register</title>
+				<title>TQuest | Register</title>
 			</Helmet>
 			<div className="max-w-md my-56 mx-auto shadow-xl">
 				<Card className="p-3">

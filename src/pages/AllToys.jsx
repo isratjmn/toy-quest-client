@@ -1,9 +1,11 @@
-import { Checkbox, Table } from "flowbite-react";
+
 import React, { useEffect, useState } from "react";
 import SingleToy from "./SingleToy";
+import { Helmet } from "react-helmet";
 
 const AllToys = () => {
 	const [toys, setToys] = useState([]);
+	
 
 	useEffect(() => {
 		fetch("http://localhost:5000/alltoys")
@@ -14,6 +16,10 @@ const AllToys = () => {
 	}, []);
 
 	return (
+		<>
+		<Helmet>
+				<title>TQuest | AddToy</title>
+			</Helmet>
 		<div className="md:mx-40 my-60 bg-[#FFF3F1] grid md:grid-cols-1 rounded-xl">
 			<div className="overflow-x-auto w-full pt-8">
 				<h2 className="text-4xl font-bold text-[#4c4cf1] mb-12 mt-20 text-center">
@@ -115,6 +121,7 @@ const AllToys = () => {
 				</div>
 			</div>
 		</div>
+		</>
 	);
 };
 

@@ -9,7 +9,7 @@ const ErrorPage = () => {
 	return (
 		<>
 			<Helmet>
-				<title>PHero | Error</title>
+				<title>TQuest | Error</title>
 			</Helmet>
 			<section className="flex items-center h-screen p-16 bg-gray-100 text-gray-900">
 				<div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
@@ -23,7 +23,7 @@ const ErrorPage = () => {
 						<p className="text-2xl font-semibold md:text-3xl text-red-800 mb-8">
 							{error?.message}
 						</p>
-						<Link to="/" className="btn">
+						<Link to="/" className="btn font-bold text-lg outline-double py-2 px-4">
 							Back to Home
 						</Link>
 					</div>

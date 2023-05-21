@@ -40,9 +40,10 @@ const Header = ({ login }) => {
 							arrowIcon={false}
 							inline={true}
 							label={
+								
 								<Avatar
 									alt="user"
-									img={user && user?.photoURL || (<FaUserCircle className="fs-1" />) }
+									img={user && (<FaUserCircle className="fs-1" />) ?.photoURL}
 									rounded={true}
 								/>
 							}

@@ -5,7 +5,7 @@ import ToyCard from "./ToyCard";
 
 const Category = () => {
 	const [toys, setToys] = useState([]);
-	const [activeTab, setActiveTab] = useState("microbus");
+	const [activeTab, setActiveTab] = useState("language");
 
 	useEffect(() => {
 		const url = `http://localhost:5000/allcategory/${activeTab}`;
@@ -30,9 +30,9 @@ const Category = () => {
 				</h2>
 				<div className="tabs mb-8 justify-center mx-auto text-center mt-10">
 					<a
-						onClick={() => handleTabClick("microbus")}
+						onClick={() => handleTabClick("language")}
 						className={`text-lg font-semibold pr-4 mr-10 tab bg-[#4c4cf1] px-4 py-3 tab-bordered ${
-							activeTab == "microbus"
+							activeTab == "language"
 								? "border-b-4  border-pink-600 text-white"
 								: "text-slate-300"
 						}`}
@@ -41,9 +41,9 @@ const Category = () => {
 					</a>
 
 					<a
-						onClick={() => handleTabClick("firecar")}
+						onClick={() => handleTabClick("mathematics")}
 						className={`text-lg font-semibold pr-4 mr-10 tab bg-[#4c4cf1] px-4 py-3 tab-bordered ${
-							activeTab == "firecar"
+							activeTab == "mathematics"
 								? "border-b-4 border-pink-600 text-white "
 								: "text-slate-300"
 						}`}
@@ -52,9 +52,9 @@ const Category = () => {
 					</a>
 
 					<a
-						onClick={() => handleTabClick("bike")}
+						onClick={() => handleTabClick("scientific")}
 						className={`text-lg font-semibold pr-4 mr-10 tab bg-[#4c4cf1] px-4 py-3 tab-bordered ${
-							activeTab == "bike"
+							activeTab == "scientific"
 								? "border-b-4 border-pink-600 text-white"
 								: "text-slate-300"
 						}`}

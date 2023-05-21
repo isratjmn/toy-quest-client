@@ -2,7 +2,7 @@ import React from 'react';
 
 const SinglaBlog = ({ blog }) => {
     return (
-        <div className=" bg-red-200 mx-4 md:mx-2 p-5 rounded-xl">
+        <div className=" bg-red-200 mx-4 md:mx-2 p-5 rounded-xl" data-aos="zoom-in">
 			
 			<h2 className="font-popins text-2xl font-bold mb-8 pt-8 md:px-5">
 				{" "}

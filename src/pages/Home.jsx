@@ -11,7 +11,7 @@ const Home = () => {
 	return (
 		<>
 			<Helmet>
-				<title>PHero | Home</title>
+				<title>TQuest | Home</title>
 			</Helmet>
 			<Banner />
 			<AboutUs />

@@ -8,7 +8,9 @@ const MapView = () => {
 		<div>
 			<div
 				className={`px-8 md:px-20 bg-[url('./assets/banner.jpg')] bg-center bg-no-repeat relative z-20 h-96`}
-				style={{ backgroundSize: "cover", position: "sticky" }}
+				style={{ backgroundSize: "cover", position: "sticky" }} data-aos="fade-right"
+				data-aos-offset="300"
+				data-aos-easing="ease-in-sine"
 			>
 				<div className="absolute inset-0 bg-[rgba(0,0,0,0.8)] z-[1]"></div>
 				<div className="flex items-center ">

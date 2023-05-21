@@ -23,14 +23,14 @@ const OurBrands = () => {
 					<LazyLoad height={200} offset={50}>
 						<div className="flex flex-col px-6 rounded-lg shadow-md bg-[#FFF3F1] py-0">
 							<img
-								className="py-1 md:mb-2 w-[70%] md:w-[97%]"
+								className="py-[2.1px] md:mb-2 w-[70%] md:w-[97%]"
 								src={brand6}
 								alt="image"
 							/>
 						</div>
 					</LazyLoad>
 				</div>
-				<div className="w-[90%] lg:w-full mx-auto">
+				<div className="w-[90%] lg:w-full mx-auto" data-aos-duration="2000" data-aos="zoom-in">
 					<LazyLoad height={250} offset={50}>
 						<div className="flex flex-col px-6 rounded-lg shadow-md bg-[#FFF3F1] py-0">
 							<img
@@ -41,7 +41,7 @@ const OurBrands = () => {
 						</div>
 					</LazyLoad>
 				</div>
-				<div className="w-[90%] lg:w-full mx-auto">
+				<div className="w-[90%] lg:w-full mx-auto" data-aos-duration="2000" data-aos="zoom-in">
 					<LazyLoad height={250} offset={50}>
 						<div className="flex flex-col px-6 rounded-lg shadow-md bg-[#FFF3F1] py-1">
 							<img
@@ -52,7 +52,7 @@ const OurBrands = () => {
 						</div>
 					</LazyLoad>
 				</div>
-				<div className="w-[90%] lg:w-full mx-auto">
+				<div className="w-[90%] lg:w-full mx-auto" data-aos-duration="2000" data-aos="zoom-in">
 					<LazyLoad height={250} offset={50}>
 						<div className="flex flex-col px-6 rounded-lg shadow-md bg-[#FFF3F1] py-11">
 							<img
@@ -63,7 +63,7 @@ const OurBrands = () => {
 						</div>
 					</LazyLoad>
 				</div>
-				<div className="w-[90%] lg:w-full mx-auto">
+				<div className="w-[90%] lg:w-full mx-auto" data-aos-duration="2000" data-aos="zoom-in">
 					<LazyLoad height={250} offset={50}>
 						<div className="flex flex-col px-6 rounded-lg shadow-md bg-[#FFF3F1] py-6">
 							<img

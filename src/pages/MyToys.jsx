@@ -2,17 +2,15 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { Link } from "react-router-dom";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import UpdateToy from "../component/UpdateToy";
+import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const MyToys = () => {
 	const { user } = useContext(AuthContext);
 	const [toys, setToys] = useState([]);
-
-/* 	useEffect(() => {
-		fetch(`http://localhost:5000/mytoys/${user?.email}`)
-			.then((res) => res.json())
-			.then((data) => setToys(data));
-		console.log(toys);
-	}, [user]); */
+	const [modalShow, setModalShow] = useState(false);
+	const [control, setControl] = useState(false);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -26,11 +24,12 @@ const MyToys = () => {
 				console.log(error);
 			}
 		};
-
 		fetchData();
-	}, [user]);
+	}, [user, control]);
 
-	/* const handleDelete = (_id) => {
+
+
+	const handleDelete = (id) => {
 		Swal.fire({
 			title: "Are you sure?",
 			text: "You won't be able to revert this!",
@@ -41,7 +40,7 @@ const MyToys = () => {
 			confirmButtonText: "Yes, delete it!",
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch(`http://localhost:5000/alltoys/${_id}`, {
+				fetch(`http://localhost:5000/toydelete/${id}`, {
 					method: "DELETE",
 				})
 					.then((res) => res.json())
@@ -54,7 +53,7 @@ const MyToys = () => {
 								"success"
 							);
 							const remaining = toys.filter(
-								(toy) => toy._id !== _id
+								(toy) => toy._id !== id
 							);
 							setToys(remaining);
 						}
@@ -64,32 +63,30 @@ const MyToys = () => {
 					});
 			}
 		});
-	}; */
+	};
 
-	/* 	const handleUpdatedToy = () => {
-		fetch(`http://localhost:5000/updatedtoy/${_id}`, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(updatedToy)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.modifiedCount > 0) {
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Toys Updated Successfully',
-                        icon: 'success',
-                        confirmButtonText: 'Cool'
-                    })
-                }
-            })
-    } */
+	const handleToyUpdate = (data) => {
+		console.log(data);
+
+		fetch(`http://localhost:5000/updatedtoy/${data._id}`, {
+			method: "PUT",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(data),
+		})
+			.then((res) => res.json())
+			.then((result) => {
+				if (result.modifiedCount > 0) {
+					setControl(!control);
+				}
+				console.log(result);
+			});
+	};
 
 	return (
 		<div>
+			<Helmet>
+				<title>TQuest | MyToys</title>
+			</Helmet>
 			<div className="overflow-x-hidden lg:mx-40 my-60 bg-[#FFF3F1] grid md:grid-cols-1 rounded-xl">
 				<div className="overflow-x-auto w-full pt-8">
 					<h2 className="text-4xl font-bold text-[#4c4cf1] mb-12 mt-20 text-center">
@@ -103,7 +100,7 @@ const MyToys = () => {
 						<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border">
 							<thead class="text-gray-700 text-base capitalize md:py-6 bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
 								<tr>
-									<th scope="col" class="p-4">
+									{/* <th scope="col" class="p-4">
 										<div class="flex items-center">
 											<input
 												id="checkbox-all-search"
@@ -114,9 +111,12 @@ const MyToys = () => {
 												for="checkbox-all-search"
 												class="sr-only"
 											>
-												checkbox
+												SL
 											</label>
 										</div>
+									</th> */}
+									<th scope="col" class="px-6 py-3">
+										Sl
 									</th>
 									<th scope="col" class="px-6 py-3">
 										Toy Picture
@@ -134,20 +134,23 @@ const MyToys = () => {
 										Seller Information
 									</th>
 									<th scope="col" class="px-6 py-3">
-										Action
+										Edit
+									</th>
+									<th scope="col" class="px-6 py-3">
+										Delete
 									</th>
 								</tr>
 							</thead>
 
 							<tbody>
-								{toys.map((toy) => (
+								{toys.map((toy, index) => (
 									<tr key={toy._id}>
-										<th></th>
+										<th className="text-xl text-center">{index+ 1}</th>
 										<th>
 											<img
 												className="w-24 h-24 object-contain"
 												src={toy.toyPhoto}
-												alt=""
+												alt="img"
 											/>
 										</th>
 										<th className="font-normal">
@@ -166,9 +169,40 @@ const MyToys = () => {
 											<p>Email: {toy.sellerEmail}</p>
 										</th>
 										<th>
-                                            <Link to={`/updatedtoys/${toy._id}`}><FaEdit className="mb-2 text-3xl text-black"></FaEdit></Link>
-                                            
-                                        </th>
+											<button
+												variant="primary"
+												onClick={() =>
+													setModalShow(true)
+												}
+												className="btn btn-secondary mr-2 me-auto"
+											>
+												<FaEdit className="mb-2 text-3xl text-black ms-8"></FaEdit>
+											</button>
+
+											<UpdateToy
+												show={modalShow}
+												onHide={() =>
+													setModalShow(false)
+												}
+												toy={toy}
+												handleToyUpdate={handleToyUpdate}
+												className="btn btn-primary"
+											></UpdateToy>
+										</th>
+										<th>
+											{/* <Link
+												to={`/updatedtoys/${toy._id}`}
+											>
+												<FaEdit className="mb-2 text-3xl text-black"></FaEdit>
+											</Link> */}
+											<buttton
+												onClick={() =>
+													handleDelete(toy._id)
+												}
+											>
+												<FaTrashAlt className=" text-3xl text-red-500 mx-auto"></FaTrashAlt>
+											</buttton>
+										</th>
 									</tr>
 								))}
 							</tbody>

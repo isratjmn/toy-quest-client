@@ -13,6 +13,7 @@ import AddToy from "../../pages/AddToy";
 import PrivetRoute from "../PrivetRoute";
 import MyToys from "../../pages/MyToys";
 import UpdateToy from "../../component/UpdateToy";
+import ViewDetails from "../../pages/ViewDetails";
 // import MyToys from "../../pages/MyToys";
 // import UpdateToy from "../../component/UpdateToy";
 
@@ -31,11 +32,17 @@ const router = createBrowserRouter([
 				element: <AllToys />,
 			},
 			{
+				path: "viewdetails/:id",
+				element: <ViewDetails />,
+				loader: ({ params }) =>
+					fetch(`http://localhost:5000/viewdetails/${params.id}`),
+			},
+			{
 				path: "addtoy",
 				element: <AddToy />,
 			},
 			{
-				path: "/mytoys",
+				path: "mytoys",
 				element: (
 					<PrivetRoute>
 						<MyToys />
@@ -70,12 +77,11 @@ const router = createBrowserRouter([
 			},
 		],
 	},
-	{
+	/* 	{
 		path: "/updatedtoys/:id",
 		element: <UpdateToy />,
-
-		// loader: ({params}) => fetch(`http://localhost:5000/updatedtoy/${params.id}`),
-	},
+		loader: ({params}) => fetch(`http://localhost:5000/updatedtoy/${params.id}`),
+	}, */
 ]);
 
 export default router;

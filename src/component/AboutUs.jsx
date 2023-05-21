@@ -16,8 +16,12 @@ const AboutUs = () => {
 				more.
 			</p>
 
-			<div className="md:mx-20 my-20 grid md:grid-cols-2">
-				<div>
+			<div
+				className="md:mx-20 my-20 grid md:grid-cols-2"
+				
+			>
+				<div data-aos="fade-up"
+				data-aos-duration="1000">
 					<img src={About1} alt="about" />
 				</div>
 				<div className="section-title flex flex-col justify-center">
@@ -38,15 +42,14 @@ const AboutUs = () => {
 							toys into various categories, making it easier for
 							customers to navigate and find specific types of
 							toys. Common categories may include age groups,
-							brands, toy types, and popular themes. 
+							brands, toy types, and popular themes.
 							<br />
-							
-							Product Listings: Each toy category will have its dedicated
-							product listings, showcasing individual toys with
-							images, descriptions, pricing, and customer reviews.
-							These listings allow customers to browse through the
-							available options and make informed purchasing
-							decisions.
+							Product Listings: Each toy category will have its
+							dedicated product listings, showcasing individual
+							toys with images, descriptions, pricing, and
+							customer reviews. These listings allow customers to
+							browse through the available options and make
+							informed purchasing decisions.
 						</p>
 					</div>
 				</div>

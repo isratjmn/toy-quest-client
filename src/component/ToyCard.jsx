@@ -10,8 +10,9 @@ const ToyCard = ({ toy }) => {
 			<div>
 				<div className="card w-full h-full bg-base-100 p-7 shadow-xl border rounded-xl">
 					<figure>
+						<h2></h2>
 						<img
-							className="w-48 h-48 object-contain"
+							className="h-52 object-contain mx-auto mb-6"
 							src={toyPhoto}
 							alt="toy"
 						/>

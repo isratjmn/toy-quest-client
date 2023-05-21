@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../provider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const AddToy = () => {
 	const { user } = useContext(AuthContext);
@@ -33,6 +34,10 @@ const AddToy = () => {
 	};
 
 	return (
+		<>
+		<Helmet>
+				<title>TQuest | AddToy</title>
+			</Helmet>
 		<div className="bg-[#FFF3F1] mt-64 md:mx-20 rounded-xl">
 			<div className="w-[90%] md:w-3/5 mx-auto">
 				<div className="py-12 text-center">
@@ -133,7 +138,6 @@ const AddToy = () => {
 										defaultValue="4.5"
 										{...register(
 											"toyRating",
-											// For Rating Limitations: 0 to 5, I'm using Chat GPT.
 											{
 												pattern: {
 													value: /^(?:[0-4](\.\d{1,2})?|5(\.0{1,2})?)$/,
@@ -144,7 +148,7 @@ const AddToy = () => {
 										)}
 									/>
 									{errors.toyRating && (
-										<span className="text-lg text-red-700 mt-1 text-start">
+										<span className="text-xs text-red-800 mt-1 text-start">
 											{errors.toyRating.message}
 										</span>
 									)}
@@ -211,6 +215,7 @@ const AddToy = () => {
 				</div>
 			</div>
 		</div>
+		</>
 	);
 };
 
