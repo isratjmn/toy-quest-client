@@ -16,7 +16,7 @@ const AllToys = () => {
 	return (
 		<div className="md:mx-40 my-60 bg-[#FFF3F1] grid md:grid-cols-1 rounded-xl">
 			<div className="overflow-x-auto w-full pt-8">
-				<h2 className="text-4xl font-extrabold text-[#4c4cf1] mb-12 mt-20 text-center">
+				<h2 className="text-4xl font-bold text-[#4c4cf1] mb-12 mt-20 text-center">
 					Toys Collection
 				</h2>
 

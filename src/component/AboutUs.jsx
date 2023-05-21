@@ -5,7 +5,7 @@ import About2 from "./../assets/images/about_2.jpg";
 const AboutUs = () => {
 	return (
 		<>
-			<h2 className="text-4xl mb-4 font-extrabold text-center mt-44 font-InterVar text-[#4c4cf1]">
+			<h2 className="text-4xl mb-4 font-bold text-center mt-44 text-[#4c4cf1]">
 				{" "}
 				About Us{" "}
 			</h2>

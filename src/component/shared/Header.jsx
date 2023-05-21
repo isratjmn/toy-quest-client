@@ -42,11 +42,12 @@ const Header = ({ login }) => {
 							label={
 								<Avatar
 									alt="user"
-									img={user && (<FaUserCircle className="fs-1" />) ?.photoURL}
+									img={user && user?.photoURL || (<FaUserCircle className="fs-1" />) }
 									rounded={true}
 								/>
 							}
 						>
+							{console.log(user)}
 							<Dropdown.Header>
 								<span className="block text-sm">
 									{user?.displayName}

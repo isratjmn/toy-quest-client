@@ -1,4 +1,4 @@
-import { Button, Card, Dropdown, Label, TextInput } from "flowbite-react";
+import Swal from "sweetalert2";
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../provider/AuthProvider";
@@ -12,35 +12,43 @@ const AddToy = () => {
 		formState: { errors },
 	} = useForm();
 	const onSubmit = (data) => {
+		const userData = { ...data, sellerEmail: user.email };
 		fetch("http://localhost:5000/addtoy", {
 			method: "POST",
 			headers: { "content-type": "application/json" },
-			body: JSON.stringify(data),
+			body: JSON.stringify(userData),
 		})
 			.then((res) => res.json())
 			.then((result) => {
 				console.log(result);
+				if (result.insertedId) {
+					Swal.fire({
+						title: "Success!",
+						text: "Toys Added Successfully",
+						icon: "success",
+						confirmButtonText: "Ok",
+					});
+				}
 			});
-		console.log(data);
 	};
 
 	return (
-		<div className="bg-[#FFF3F1] mt-64 md:mx-20">
+		<div className="bg-[#FFF3F1] mt-64 md:mx-20 rounded-xl">
 			<div className="w-[90%] md:w-3/5 mx-auto">
 				<div className="py-12 text-center">
-					<h2 className="text-4xl font-bold stl2-font text-[#4c4cf1] mb-12 mt-16">
+					<h2 className="text-4xl font-bold text-[#4c4cf1] mb-12 mt-16">
 						Add Your Toy
 					</h2>
 					<form onSubmit={handleSubmit(onSubmit)}>
 						{errors.exampleRequired && (
 							<span>This field is required</span>
 						)}
-						<div className="grid grid-cols-2 gap-5">
+						<div className="grid grid-cols-2 gap-3">
 							<div>
 								{/* Toy Photo URL  */}
 								<div className="form-control flex flex-col ">
 									<label className="label me-auto mb-2">
-										<span className="label-text font-bold text-base ms-auto">
+										<span className="label-text font-semibold text-sm ms-auto">
 											Toy Photo URL
 										</span>
 									</label>
@@ -52,29 +60,13 @@ const AddToy = () => {
 										{...register("toyPhoto")}
 									/>
 								</div>
-
-								{/* Toy Name */}
-								<div className="form-control flex flex-col">
-									<label className="label me-auto mb-2">
-										<span className="label-text font-bold text-base">
-											Toy Name
-										</span>
-									</label>
-									<input
-										required
-										className="input border-0 focus:outline-none shadow"
-										type="text"
-										defaultValue=""
-										{...register("toyName")}
-									/>
-								</div>
 							</div>
 
 							<div>
 								{/* Seller Name */}
 								<div className="form-control flex flex-col">
 									<label className="label me-auto mb-2">
-										<span className="label-text font-bold text-base">
+										<span className="label-text font-semibold text-sm">
 											Seller Name
 										</span>
 									</label>
@@ -86,29 +78,13 @@ const AddToy = () => {
 										{...register("sellerName")}
 									/>
 								</div>
-
-								{/* Seller Email */}
-								<div className="form-control flex flex-col">
-									<label className="label me-auto mb-2">
-										<span className="label-text font-bold text-base">
-											Seller Email
-										</span>
-									</label>
-									<input
-										required
-										className="input border-0 focus:outline-none shadow"
-										type="email"
-										defaultValue={user?.email}
-										{...register("sellerEmail")}
-									/>
-								</div>
 							</div>
 
 							<div>
 								{/* Toy Category */}
 								<div className="form-control flex flex-col">
 									<label className="label me-auto mb-2">
-										<span className="label-text font-bold text-base">
+										<span className="label-text font-semibold text-sm">
 											Toy Category
 										</span>
 									</label>
@@ -116,20 +92,20 @@ const AddToy = () => {
 										className="input"
 										{...register("toyCategory")}
 									>
-										<option value="microbus">
-											Micro Bus
+										<option value="scientific">
+											Scientific Toys
 										</option>
-										<option value="firecar">
-											Fire & Rescue
+										<option value="language">
+											Language Toys
 										</option>
-										<option value="bike">Motor Bike</option>
+										<option value="math">Math Toys</option>
 									</select>
 								</div>
 
 								{/* Toy Price */}
-								<div className="form-control flex flex-col">
+								<div className="form-control flex flex-col mt-3">
 									<label className="label me-auto mb-2">
-										<span className="label-text  font-bold text-base">
+										<span className="label-text font-semibold text-sm my-11">
 											Toy Price
 										</span>
 									</label>
@@ -147,15 +123,14 @@ const AddToy = () => {
 								{/* Toy Rating */}
 								<div className="form-control flex flex-col">
 									<label className="label me-auto mb-2">
-										<span className="label-text  font-bold text-base pb-4">
+										<span className="label-text font-semibold text-sm pb-4">
 											Toy Rating
 										</span>
 									</label>
 									<input
-										required
 										className="input border-0 focus:outline-none shadow"
 										type="text"
-										defaultValue="4.9"
+										defaultValue="4.5"
 										{...register(
 											"toyRating",
 											// For Rating Limitations: 0 to 5, I'm using Chat GPT.
@@ -176,9 +151,9 @@ const AddToy = () => {
 								</div>
 
 								{/* Available Quantity */}
-								<div className="form-control flex flex-col">
+								<div className="form-control flex flex-col mt-3">
 									<label className="label me-auto mb-2">
-										<span className="label-text font-bold text-sm md:text-base">
+										<span className="label-text font-semibold text-sm">
 											Available Quantity
 										</span>
 									</label>
@@ -193,10 +168,26 @@ const AddToy = () => {
 							</div>
 						</div>
 
+						{/* Toy Name */}
+						<div className="w-[100%] form-control flex flex-col mt-3">
+							<label className="label me-auto mb-2">
+								<span className="label-text font-semibold text-sm pt-4">
+									Toy Name
+								</span>
+							</label>
+							<input
+								required
+								className="input border-0 focus:outline-none shadow"
+								type="text"
+								defaultValue=""
+								{...register("toyName")}
+							/>
+						</div>
+
 						{/* Toy Details */}
 						<div className="form-control mt-4 flex flex-col">
 							<label className="label me-auto mb-2">
-								<span className="label-text font-bold text-base">
+								<span className="label-text font-semibold text-sm">
 									Toy Details
 								</span>
 							</label>

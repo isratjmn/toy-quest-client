@@ -1,13 +1,65 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../provider/AuthProvider";
+import { Link } from "react-router-dom";
+import { FaEdit, FaTrashAlt } from "react-icons/fa";
 
 const MyToys = () => {
+	const { user } = useContext(AuthContext);
+	const [toys, setToys] = useState([]);
+
+	const handleDelete = (_id) => {
+		Swal.fire({
+			title: "Are you sure?",
+			text: "You won't be able to revert this!",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#3085d6",
+			cancelButtonColor: "#d33",
+			confirmButtonText: "Yes, delete it!",
+		}).then((result) => {
+			if (result.isConfirmed) {
+				fetch(`http://localhost:5000/alltoys/${_id}`, {
+					method: "DELETE",
+				})
+					.then((res) => res.json())
+					.then((data) => {
+						console.log(data);
+						if (data.deletedCount > 0) {
+							Swal.fire(
+								"Deleted!",
+								"Your Toy has been deleted.",
+								"success"
+							);
+							const remaining = toys.filter(
+								(toy) => toy._id !== _id
+							);
+							setToys(remaining);
+						}
+					})
+					.catch((error) => {
+						console.error("Error deleting toy:", error);
+					});
+			}
+		});
+	};
+
+	useEffect(() => {
+		fetch(`http://localhost:5000/mytoys/${user?.email}`)
+			.then((res) => res.json())
+			.then((data) => setToys(data));
+            console.log(toys)
+	}, [user]);
+
 	return (
 		<div>
-			<div className="overflow-x-hidden md:mx-40 my-60 bg-[#FFF3F1] grid md:grid-cols-1 rounded-xl">
+			<div className="overflow-x-hidden lg:mx-40 my-60 bg-[#FFF3F1] grid md:grid-cols-1 rounded-xl">
 				<div className="overflow-x-auto w-full pt-8">
-					<h2 className="text-4xl font-extrabold text-[#4c4cf1] mb-12 mt-20 text-center">
+					<h2 className="text-4xl font-bold text-[#4c4cf1] mb-12 mt-20 text-center">
 						My Added Toys
 					</h2>
+					<h3 className="font-bold text-center mb-6 text-pink-700 text-xl">
+						Total Added Toys: {toys.length}
+					</h3>
 
 					<div class="relative overflow-x-auto shadow-md sm:rounded-lg md:mx-28  mb-20">
 						<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border">
@@ -48,7 +100,48 @@ const MyToys = () => {
 									</th>
 								</tr>
 							</thead>
-							<tbody>hgfjhgfjhgjgjkhgk</tbody>
+
+							<tbody>
+								{toys.map((toy) => (
+									<tr key={toy._id}>
+										<th></th>
+										<th>
+											<img
+												className="w-24 h-24 object-contain"
+												src={toy.toyPhoto}
+												alt=""
+											/>
+										</th>
+										<th className="font-normal">
+											<p className="font-semibold text-lg">
+												{toy.toyName}
+											</p>
+											<p>Category: {toy.toyCategory}</p>
+											<p>Rating: {toy.toyRating}</p>
+										</th>
+										<th>$ {toy.toyPrice}</th>
+										<th className="font-normal">
+											{toy.quantity} PCS
+										</th>
+										<th className="font-normal">
+											<p>Name: {toy.sellerName}</p>
+											<p>Email: {toy.sellerEmail}</p>
+										</th>
+										<th>
+											<Link to={`updateToy/${toy._id}`}>
+												<FaEdit className="mb-2 text-3xl text-black"></FaEdit>
+											</Link>
+											<button
+												onClick={() =>
+													handleDelete(toy._id)
+												}
+											>
+												<FaTrashAlt className=" text-3xl text-red-500"></FaTrashAlt>
+											</button>
+										</th>
+									</tr>
+								))}
+							</tbody>
 						</table>
 					</div>
 				</div>

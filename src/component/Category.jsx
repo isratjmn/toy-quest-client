@@ -1,73 +1,71 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import SingleToyCategory from "./SingleToyCategory";
+import React, { useEffect, useState } from "react";
+
+import "react-tabs/style/react-tabs.css";
+import ToyCard from "./ToyCard";
 
 const Category = () => {
-	const [allToyCategory, setAllToyCategory] = useState([]);
-	const [activeTab, setActiveTab] = useState("ss");
+	const [toys, setToys] = useState([]);
+	const [activeTab, setActiveTab] = useState("microbus");
 
 	useEffect(() => {
-		fetch(`http://localhost:5000/alltoys/${activeTab}`)
+		const url = `http://localhost:5000/allcategory/${activeTab}`;
+		console.log(url);
+		fetch(`http://localhost:5000/allcategory/${activeTab}`)
 			.then((res) => res.json())
 			.then((result) => {
-				setAllToyCategory(result);
+				setToys(result);
 			});
 	}, [activeTab]);
 
 	const handleTabClick = (tabName) => {
 		setActiveTab(tabName);
 	};
+
 	return (
-		<div>
-			<div className="mt-10">
-				<div className="justify-center flex">
-					<img src="" alt="" />
+		<div className=" py-4 lg:mx-20">
+			<div className="mx-auto">
+				<h2 className="text-4xl mb-4 font-bold text-center mt-14 text-[#4c4cf1]">
+					{" "}
+					Shop By Category{" "}
+				</h2>
+				<div className="tabs mb-8 justify-center mx-auto text-center mt-10">
+					<a
+						onClick={() => handleTabClick("microbus")}
+						className={`text-lg font-semibold pr-4 mr-10 tab bg-[#4c4cf1] px-4 py-3 tab-bordered ${
+							activeTab == "microbus"
+								? "border-b-4  border-pink-600 text-white"
+								: "text-slate-300"
+						}`}
+					>
+						Language
+					</a>
+
+					<a
+						onClick={() => handleTabClick("firecar")}
+						className={`text-lg font-semibold pr-4 mr-10 tab bg-[#4c4cf1] px-4 py-3 tab-bordered ${
+							activeTab == "firecar"
+								? "border-b-4 border-pink-600 text-white "
+								: "text-slate-300"
+						}`}
+					>
+						Mathematics
+					</a>
+
+					<a
+						onClick={() => handleTabClick("bike")}
+						className={`text-lg font-semibold pr-4 mr-10 tab bg-[#4c4cf1] px-4 py-3 tab-bordered ${
+							activeTab == "bike"
+								? "border-b-4 border-pink-600 text-white"
+								: "text-slate-300"
+						}`}
+					>
+						Scientific
+					</a>
 				</div>
 
-				<h1 className=" font-bold  text-4xl  text-center text-[#313131] mb-10">
-					Toy Car{" "}
-				</h1>
-
-				<div className="tabs flex justify-center align-middle">
-					<div
-						onClick={() => handleTabClick("regular")}
-						className={`tab  tab-lifted regular ${
-							activeTab == "regular"
-								? " bg-[#09CCD0] text-white"
-								: ""
-						}`}
-					>
-						Regular car
-					</div>
-					<div
-						onClick={() => handleTabClick("sports")}
-						className={`tab  tab-lifted sports ${
-							activeTab == "sports"
-								? " bg-[#09CCD0] text-white"
-								: ""
-						}`}
-					>
-						Sports car
-					</div>
-
-					<div
-						onClick={() => handleTabClick("truck")}
-						className={`tab  tab-lifted truck ${
-							activeTab == "truck"
-								? " bg-[#09CCD0] text-white"
-								: ""
-						}`}
-					>
-						Truck
-					</div>
-				</div>
-
-				<div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-3 px-4 mt-4">
-					{allToyCategory?.map((singleToyCategory) => (
-						<SingleToyCategory
-							key={singleToyCategory._id}
-							singleToyCategory={singleToyCategory}
-						></SingleToyCategory>
+				<div className="grid grid-cols-3 gap-4">
+					{toys?.map((toy) => (
+						<ToyCard toy={toy} key={toy._id}></ToyCard>
 					))}
 				</div>
 			</div>

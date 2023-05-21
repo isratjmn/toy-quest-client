@@ -4,8 +4,8 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 const ImageGallery = () => {
 	return (
-		<div className="my-10">
-			<h2 className="text-4xl mb-4 font-extrabold text-center mt-96 font-InterVar text-[#4c4cf1]">
+		<div className="my-6 pt-24">
+			<h2 className="text-4xl mb-4 font-bold text-center mt-6 text-[#4c4cf1]">
 				{" "}
 				Toy Gallery{" "}
 			</h2>

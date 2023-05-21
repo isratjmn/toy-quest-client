@@ -19,9 +19,9 @@ const Blogs = () => {
 				}}
 			></div>
 			<div className="md:px-20 my-28">
-				<h2 className="text-center font-popins text-3xl font-bold">
+				<h2 className="text-center text-4xl text-[#4c4cf1] font-bold ">
 					{" "}
-					Blogs
+					Our Blogs
 				</h2>
 				<div className="grid md:grid-cols-2 gap-8 mt-20">
 					{blogs.map((blog) => (
