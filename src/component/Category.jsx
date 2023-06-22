@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import "react-tabs/style/react-tabs.css";
 import ToyCard from "./ToyCard";
 

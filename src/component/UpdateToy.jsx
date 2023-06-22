@@ -1,7 +1,5 @@
 import React, { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { Button, Modal } from "flowbite-react";
-
 import { Helmet } from "react-helmet";
 import { useLoaderData } from "react-router-dom";
 
