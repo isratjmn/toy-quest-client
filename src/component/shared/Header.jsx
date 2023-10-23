@@ -18,7 +18,7 @@ const Header = ({ login }) => {
 			<Navbar
 				fluid={true}
 				rounded={true}
-				style={{ background: "#FFF3F1", padding: "0 15px", borderRadius: '13px' }}
+				style={{ background: "#FFF3F1", padding: "0 15px", borderRadius: '8px' }}
 			>
 				<div>
 					<Link to="/">

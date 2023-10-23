@@ -2,11 +2,11 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
-const SingleToy = ({ toy }) => {
+const SingleToy = ({ toy, index }) => {
 	const {
+		_id,
 		toyName,
 		toyPhoto,
-		_id,
 		sellerName,
 		sellerEmail,
 		toyCategory,
@@ -23,21 +23,12 @@ const SingleToy = ({ toy }) => {
 			</Helmet>
 			<tr className="border">
 				<th scope="col" class="p-4">
-					<div class="flex items-center">
-						<input
-							id="checkbox-all-search"
-							type="checkbox"
-							class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-						/>
-						<label for="checkbox-all-search" class="sr-only">
-							checkbox
-						</label>
-					</div>
+					{index}
 				</th>
 				<td>
 					<div className="avatar text-center">
-						<div className="rounded w-24 h-24">
-							{toyPhoto && <img src={toyPhoto} alt="" />}
+						<div className="w-24 h-24">
+							{toyPhoto && <img className="rounded-xl" src={toyPhoto} alt="" />}
 						</div>
 					</div>
 				</td>

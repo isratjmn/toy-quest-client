@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { Link } from "react-router-dom";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import { HiViewfinderCircle } from "react-icons/hi2";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
 
@@ -14,7 +15,7 @@ const MyToys = () => {
 		const fetchData = async () => {
 			try {
 				const res = await fetch(
-					`https://toy-quest-server.vercel.app/mytoys/${user?.email}?sort=${
+					`http://127.0.0.1:7000/mytoys/${user?.email}?sort=${
 						asc ? "asc" : "desc"
 					}`
 				);
@@ -38,7 +39,7 @@ const MyToys = () => {
 			confirmButtonText: "Yes, delete it!",
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch(`https://toy-quest-server.vercel.app/toydelete/${id}`, {
+				fetch(`http://127.0.0.1:7000/toydelete/${id}`, {
 					method: "DELETE",
 				})
 					.then((res) => res.json())
@@ -87,7 +88,7 @@ const MyToys = () => {
 
 					<div class="relative overflow-x-auto shadow-md sm:rounded-lg md:mx-28  mb-20">
 						{/* Table */}
-						<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border">
+						<table class="w-full text-sm text-left dark:text-gray-400 border">
 							<thead class="text-gray-700 text-base capitalize md:py-6 bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
 								<tr>
 									<th scope="col" class="px-6 py-3">
@@ -133,8 +134,8 @@ const MyToys = () => {
 											<p>Category: {toy.toyCategory}</p>
 											<p>Rating: {toy.toyRating}</p>
 										</th>
-										<th>$ {toy.toyPrice}</th>
-										<th className="font-normal">
+										<th className="text-center">$ {toy.toyPrice}</th>
+										<th className="text-center">
 											{toy.quantity} PCS
 										</th>
 										<th className="font-normal">
@@ -142,16 +143,17 @@ const MyToys = () => {
 											<p>Email: {toy.sellerEmail}</p>
 										</th>
 
-										<th>
+										<th className="flex gap-5 mt-10">
+											
 											<Link to={`/updatedtoy/${toy._id}`}>
-												<FaEdit className="mb-2 text-3xl text-black mx-auto"></FaEdit>
+												<FaEdit className="mb-2 text-2xl text-black mx-auto"></FaEdit>
 											</Link>
 											<buttton
 												onClick={() =>
 													handleDelete(toy._id)
 												}
 											>
-												<FaTrashAlt className="text-3xl text-red-500 mx-auto"></FaTrashAlt>
+												<FaTrashAlt className="text-2xl text-red-500 mx-auto"></FaTrashAlt>
 											</buttton>
 										</th>
 									</tr>

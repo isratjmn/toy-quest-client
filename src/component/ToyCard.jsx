@@ -16,13 +16,13 @@ const ToyCard = ({ toy }) => {
 						alt="toy"
 					/>
 				</figure>
-				<div className="card-body">
+				<div className="card-body text-center">
 					<h2 className="card-title font-bold text-2xl">{toyName}</h2>
 					<h4 className="text-[#11d6e1] text-base font-bold">
 						On Sale ${" "}
 						<span className="text-[#11d9b1]">{toyPrice}</span> USD
 					</h4>
-					<h4 className="text-yellow-500 font-bold text-xl flex gap-1 items-center">
+					<h4 className="text-yellow-500 font-bold text-xl flex gap-1 items-center  justify-center">
 						Ratings: {toyRating} <FaStar></FaStar>
 					</h4>
 					<div>

@@ -7,9 +7,9 @@ const Category = () => {
 	const [activeTab, setActiveTab] = useState("language");
 
 	useEffect(() => {
-		const url = `https://toy-quest-server.vercel.app/allcategory/${activeTab}`;
+		const url = `http://127.0.0.1:7000/allcategory/${activeTab}`;
 		console.log(url);
-		fetch(`https://toy-quest-server.vercel.app/allcategory/${activeTab}`)
+		fetch(`http://127.0.0.1:7000/allcategory/${activeTab}`)
 			.then((res) => res.json())
 			.then((result) => {
 				setToys(result);

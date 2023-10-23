@@ -32,12 +32,11 @@ const router = createBrowserRouter([
 				path: "viewdetails/:id",
 				element: (
 					<PrivetRoute>
-						{" "}
 						<ViewDetails />
 					</PrivetRoute>
 				),
 				loader: ({ params }) =>
-					fetch(`https://toy-quest-server.vercel.app/viewdetails/${params.id}`),
+					fetch(`http://127.0.0.1:7000/viewdetails/${params.id}`),
 			},
 			{
 				path: "addtoy",
@@ -51,7 +50,7 @@ const router = createBrowserRouter([
 				path: "/updatedtoy/:id",
 				element: <UpdateToy />,
 				loader: ({ params }) =>
-					fetch(`https://toy-quest-server.vercel.app/updatedtoy/${params.id}`),
+					fetch(`http://127.0.0.1:7000/alltoys/${params.id}`),
 			},
 		],
 	},
@@ -78,7 +77,7 @@ const router = createBrowserRouter([
 			{
 				path: "/blogs",
 				element: <Blogs />,
-				loader: () => fetch("https://toy-quest-server.vercel.app/blogs"),
+				loader: () => fetch("http://127.0.0.1:7000/blogs"),
 			},
 		],
 	},
